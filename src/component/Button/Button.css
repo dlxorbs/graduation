@@ -1,0 +1,100 @@
+.btn {
+  width: auto;
+  height: 42px;
+
+  position: relative;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 40px;
+
+  /*font-family: ;*/
+  font-size: 16px;
+  cursor: pointer;
+  color: var(--G1);
+
+  background-color: var(--P1);
+  border: none;
+  border-radius: 8px;
+}
+
+.btn:hover {
+  background-color: var(--P2);
+  transition: 0.4s;
+}
+
+.btn:disabled {
+  background-color: var(--G7);
+  color: var(--G1);
+  background-color: var(--G7);
+}
+
+/*.round*/
+.round {
+  border: none;
+  border-radius: 1000px !important;
+}
+
+/*.button.medium*/
+.medium {
+  width: 275px;
+  height: 42px;
+}
+
+/*.large*/
+.large {
+  width: 296px;
+  height: 62px;
+}
+
+/*.line*/
+.line {
+  cursor: pointer;
+  color: var(--P1);
+  background-color: transparent !important;
+  border: 2px solid var(--P1);
+  border-radius: 8px;
+}
+
+.line:hover {
+  color: var(--P2);
+  border: 2px solid var(--P2);
+}
+
+.line:disabled {
+  color: var(--G1);
+  border: 2px solid var(--G1);
+}
+
+.btn > span {
+  z-index: 999;
+}
+
+.btn:hover .floatani {
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  border-radius: 9999px;
+  background-color: var(--G1);
+  animation-duration: 1s;
+  animation-name: scaled;
+  bottom: -120px;
+}
+
+@keyframes scaled {
+  0% {
+    transform: scale(0.5);
+    background-color: var(--G9);
+  }
+  100% {
+    transform: scale(3.5);
+    background-color: var(--P2);
+  }
+}
+
+.line:hover .floatani {
+  animation: none;
+}

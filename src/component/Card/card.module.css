@@ -1,0 +1,97 @@
+.thumbnailContainer {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
+}
+.thumbnail {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  background-image: var(--thumbnail);
+  background-size: cover;
+  background-position: center;
+}
+
+.bottomOverlay {
+  position: absolute;
+
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  color: #fff;
+}
+
+.bottomOverlay:hover {
+  background: linear-gradient(180deg, rgba(20, 20, 21, 0) 0%, #14141580 80%);
+}
+
+.bottomOverlay > span {
+  display: none;
+  padding: 18px 16px;
+  text-align: left;
+  text-overflow: ellipsis;
+  font-size: 16px;
+}
+
+.bottomOverlay:hover > span {
+  display: block;
+}
+
+.bottomOverlay:hover .studentinfo {
+  display: var(--display) !important;
+}
+
+.nametag {
+  width: calc(100% - 32px);
+  color: #fff;
+  font-size: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px;
+}
+
+.iconsContainer {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.iconsContainer > span {
+  font-size: 16px;
+}
+
+.iconsContainer > p {
+  margin: 0;
+  font-size: 16px;
+  height: 100%;
+}
+.blue {
+  color: #667eea !important;
+}
+
+.card {
+  display: flex;
+  width: 315px;
+  gap: 10px;
+  height: auto;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cardList {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}

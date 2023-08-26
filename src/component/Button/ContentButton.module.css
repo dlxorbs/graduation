@@ -1,0 +1,25 @@
+.contentButton {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 16px;
+  gap: 8px;
+
+  /*font-family: ;*/
+  font-size: 12px;
+
+  cursor: pointer;
+  color: var(--G1);
+  background-color: var(--G8);
+
+  border: 1px solid var(--G7);
+
+  width: 158px;
+  height: 83px;
+}
+
+.contentButton:hover {
+  background-color: var(--P2);
+  transition: 0.8s;
+}

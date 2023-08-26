@@ -3,6 +3,8 @@ import Card from "./Card";
 import styles from "./card.module.css";
 import { useNavigate } from "react-router-dom";
 
+// 카드리스트 페이지
+//  카드에 맵함수 돌림.
 export default function CardList(props) {
   const nav = useNavigate();
 
@@ -19,7 +21,7 @@ export default function CardList(props) {
         type={props.type}
         major={item.major}
         studentinfo={item.studentinfo}
-        onClick={() => handleCardClick(item)}
+        // onClick={() => handleCardClick(item)}
       />
     );
   });

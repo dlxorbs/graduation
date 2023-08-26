@@ -1,6 +1,6 @@
 input[type="radio"]:checked + .tabbtn {
   outline: none;
-  color: #fff;
+  color: #333;
   background-color: var(--P1);
 }
 
@@ -10,7 +10,7 @@ input[type="radio"] {
 }
 
 .tabs {
-  color: #fff;
+  color: #333;
 }
 .tabbtn {
   padding: 8px 16px;
@@ -55,7 +55,7 @@ input[type="checkbox"] {
 input[type="checkbox"]:checked + .chipbtn {
   background-color: var(--P1);
   border: 1px solid var(--P1);
-  color: var(--G1);
+  color: var(--G11);
 }
 
 .chiplists {
@@ -64,7 +64,7 @@ input[type="checkbox"]:checked + .chipbtn {
 }
 
 .chiplists > span {
-  color: var(--G1);
+  color: var(--G11);
   padding: 10px 35px;
   text-align: center;
   align-items: center;

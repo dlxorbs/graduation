@@ -4,6 +4,8 @@ import NameTag from "./NameTag";
 import Button from "../Button/Button";
 import styles from "./card.module.css";
 
+// 카드 페이지 카드에 각각 썸네일과 버튼이 있거나로 제작했었음
+
 export default function Card(props) {
   return (
     <div className={styles.card} style={props.style}>
@@ -14,13 +16,7 @@ export default function Card(props) {
         title={props.title}
         studentinfo={props.studentinfo}
         onClick={props.onClick}
-        display={props.type !== "Archive" && "none"}
       />
-
-      {props.type === "Vote" && (
-        <Button className={"round"} title={"투표하기"} />
-      )}
-      {props.type !== "Vote" && <NameTag title={props.title} />}
     </div>
   );
 }

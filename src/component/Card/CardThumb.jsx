@@ -8,18 +8,14 @@ export default function CardThumb(props) {
         className={styles.thumbnail}
         style={{ "--thumbnail": "url(" + props.thumbnail + ")" }}
       ></div>
+
+      {/* 호버시 나타나는 정보들 */}
       <div className={styles.bottomOverlay}>
-        {props.type == "Vote" && <span>{props.title}</span>}
-        <span>{props.major}</span>
-        <span
-          className={styles.studentinfo}
-          style={{
-            "--display": `${props.display}`,
-          }}
-        >
+        <span className={styles.work}>{props.title || "title"}</span>
+        <span className={styles.studentinfo}>
           {props.studentinfo || "학생정보"}
         </span>
-        {props.children}
+        <span>{props.major}</span>
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 .headerWrapper {
-  background-color: #192028;
-  color: #ffffff;
+  background-color: #ffffff;
+  color: #333333;
   font-size: 16px;
   display: flex;
   justify-content: center;
@@ -17,7 +17,7 @@
   display: flex;
   justify-content: space-between;
   padding: 12px;
-  width: calc(1320px - 24px);
+  width: 1200px;
 }
 
 .profWrapper {
@@ -42,8 +42,9 @@
 }
 
 .navWrapper {
+  width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   gap: 24px;
 }
@@ -57,4 +58,12 @@
 .nav:hover {
   color: #516df6;
   cursor: pointer;
+}
+
+/* 글자 네비게이션 컨테이너 */
+
+.navigation {
+  width: auto;
+  display: flex;
+  gap: 40px;
 }

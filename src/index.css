@@ -16,7 +16,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #1e222d;
+  background-color: #ffffff;
 }
 
 code {
@@ -26,12 +26,12 @@ code {
 
 :root {
   /*accent*/
-  --P1: #516df6;
+  --P1: #3775bb;
   --P2: #667eea;
   --tertiary: #ff7171;
 
   /*grayscale*/
-
+  --G11: #333333;
   --G10: #323644;
   --G9: #1e222d;
   --G8: #2b2f3d;

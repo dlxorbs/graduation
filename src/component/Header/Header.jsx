@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./Header.module.css";
 import { useNavigate } from "react-router-dom";
+import logo from "../Img/logo.svg";
 
 function Nav(props) {
   return (
@@ -18,9 +19,7 @@ function Header(props) {
         <div className={styles.navWrapper}>
           <img
             className={styles.logo}
-            src={
-              "https://www.tukorea.ac.kr/sites/en/images/common/logo_footer.png"
-            }
+            src={logo}
             onClick={() => {
               nav("/");
             }}

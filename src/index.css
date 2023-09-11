@@ -1,11 +1,11 @@
 * ::-webkit-scrollbar {
   width: 8px;
-  background-color: var(--G10);
+  background-color: var(--G1);
 }
 
 * ::-webkit-scrollbar-thumb {
   width: 8px;
-  background-color: var(--G7);
+  background-color: var(--G3);
   border-radius: 99px;
 }
 
@@ -32,16 +32,17 @@ code {
 
   /*grayscale*/
   --G11: #333333;
-  --G10: #323644;
-  --G9: #1e222d;
-  --G8: #2b2f3d;
+  --G10: #555555;
+  --G9: #777777;
+  --G8: #999999;
   --G7: #4a4d5e;
   --G6: #83858f;
   --G5: #bcbcc2;
-  --G4: #d9d9d9;
-  --G3: #eaeaea;
-  --G2: #f4f4f4;
+  --G4: #d4d4d4;
+  --G3: #ededed;
+  --G2: #fafafa;
   --G1: #ffffff;
+  --G1op: #ffffff60;
 
   /*gradient bg*/
   --grad1: linear-gradient(

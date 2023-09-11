@@ -1,6 +1,7 @@
 import React from "react";
 import Card from "./Card";
 import styles from "./card.module.css";
+import thumb from "../Img/symbol1_1.png";
 import { useNavigate } from "react-router-dom";
 
 // 카드리스트 페이지
@@ -8,19 +9,15 @@ import { useNavigate } from "react-router-dom";
 export default function CardList(props) {
   const nav = useNavigate();
 
-  const handleCardClick = (item) => {
-    props.openModal(item);
-  };
-
   const list = props.data.map((item) => {
     return (
       <Card
         key={item.id}
-        thumbnail={item.thumbnail}
-        title={item.title}
-        type={props.type}
-        major={item.major}
-        studentinfo={item.studentinfo}
+        thumbnail={item.data.img || thumb}
+        title={item.main?.works || "제목없음"}
+        type={props.data.type}
+        major={item.data.major == "1" ? "산업디자인공학" : "미디어디자인공학"}
+        studentinfo={item.data.studentinfo}
         // onClick={() => handleCardClick(item)}
       />
     );

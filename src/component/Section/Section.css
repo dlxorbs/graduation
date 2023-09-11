@@ -1,0 +1,20 @@
+
+/*  섹션중 왼쪽에 글이 있는 상태의 섹션 */
+.LeftContianer {
+  position: relative;
+  width: 100%;
+  display: flex;
+  gap: 60px;
+  justify-content: center;
+}
+
+.text {
+  width: 550px;
+}
+
+.image {
+  width: 590px;
+  height: 460px;
+}
+
+

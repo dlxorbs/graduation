@@ -1,9 +1,10 @@
 import React from "react";
 import "./Section.css";
-export default function Left(props) {
+export default function Right(props) {
   return (
-    <div className="LeftContianer">
-      <div className={`textWrapper ${props.type || ""}`}>
+    <div className="RightContianer">
+      <img className={`image ${props.img}`} src={props.src} alt="" />
+      <div className={`textWrapper ${props.type}`}>
         <h4
           style={{
             "--width": props.width + "px",
@@ -13,8 +14,6 @@ export default function Left(props) {
         </h4>
         <p className="text">{props.text}</p>
       </div>
-
-      <img className={`image ${props.img || ""}`} src={props.src} alt="" />
     </div>
   );
 }

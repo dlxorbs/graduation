@@ -9,19 +9,6 @@ export default function ArchivePage() {
   const [data, setData] = useState([]); // 기본 데이터 지정
   const [filtered, setFiltered] = useState([]); // data에서 기반으로 필터링한 데이터 저장
   const [selectedCard, setSelectedCard] = useState(null);
-  const [post, setPost] = useState({
-    id: "",
-    title: "",
-    studentinfo: "",
-    grade: "",
-    year: "",
-    type: "",
-    imgscr: "",
-    major: "",
-    content: "",
-    comments: [],
-  });
-  // 타입 0:과제경진대회 1:포트 2:로고 ...
 
   // firebase 데이터 가져오기
   useEffect(() => {
@@ -30,16 +17,19 @@ export default function ArchivePage() {
       .get()
       .then((qs) => {
         qs.forEach((doc) => {
-          Datas.push(doc.data());
+          // 문서 ID를 포함하여 데이터를 가져옴
+          const postData = {
+            id: doc.id,
+            ...doc.data(),
+          };
+          Datas.push(postData);
+
         });
         setData(Datas);
         setFiltered(Datas);
       });
-    console.log(data);
   }, []);
-  useEffect(() => {
-    console.log(data);
-  });
+  useEffect(() => {});
 
   return (
     <div className={styles.page_Wrapper}>

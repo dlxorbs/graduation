@@ -6,6 +6,7 @@ import reportWebVitals from "./reportWebVitals";
 
 import Header from "./component/Header/Header";
 import ArchivePage from "./Page/ArchivePage";
+import DetailPage from "./Page/DetailPage";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -14,6 +15,7 @@ root.render(
 
     <Routes>
       <Route path="/" element={<ArchivePage />}></Route>
+      <Route path="post/:id" element={<DetailPage />}></Route>
     </Routes>
   </BrowserRouter>
 );

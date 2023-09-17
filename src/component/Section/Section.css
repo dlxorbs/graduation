@@ -1,4 +1,3 @@
-
 /*  섹션중 왼쪽에 글이 있는 상태의 섹션 */
 .LeftContianer {
   position: relative;
@@ -8,8 +7,27 @@
   justify-content: center;
 }
 
-.text {
+.RightContianer {
+  position: relative;
+  width: 100%;
+  display: flex;
+  gap: 60px;
+  justify-content: center;
+}
+
+.CenterContainer {
+  position: relative;
+  width: 100%;
+  display: flex;
+  gap: 60px;
+  justify-content: center;
+  flex-direction: column;
+}
+.textWrapper {
   width: 550px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 .image {
@@ -17,4 +35,28 @@
   height: 460px;
 }
 
+h4 {
+  color: var(--G11);
+  font-size: 36px;
+  margin: 0;
+}
 
+.text {
+  color: var(--G10);
+  font-size: 18px;
+  line-height: 160%;
+  margin: 0px;
+}
+
+.center {
+  width: 100%;
+}
+
+.function {
+  width: 373px;
+}
+
+.functionImg {
+  width: 752px;
+  height: 500px;
+}

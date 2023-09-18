@@ -12,7 +12,7 @@ export default function Right(props) {
         >
           {props.head || "dlxorbs"}
         </h4>
-        <p className="text">{props.text}</p>
+        <textarea readyonly className="text" value={props.text}></textarea>
       </div>
     </div>
   );

@@ -37,7 +37,7 @@ export default function CardList(props) {
         studentinfo={studentinfo}
         onClick={function () {
           console.log(item.id + "이동");
-          nav("/post/" + item.id);
+          nav("/project/" + item.id);
         }}
       />
     );

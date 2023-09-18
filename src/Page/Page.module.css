@@ -1,14 +1,16 @@
-.outer_Wrapper {
-  width: 100%;
-}
-
 .page_Wrapper {
   width: 1200px;
   min-height: 1080px;
   height: auto;
-  margin: 0px auto;
-  padding: 120px 0px 0px;
+  margin: 72px auto;
+
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  overflow-x: hidden;
 }
+
 .Page_SecondWrapper {
   position: relative;
   width: 100%;
@@ -24,14 +26,6 @@
   height: 100%;
   padding-top: 56px;
   display: flex;
-}
-
-.DetailContainer {
-  position: relative;
-  width: 100%;
-  display: flex;
-  gap: 60px;
-  justify-content: center;
 }
 
 h3 {

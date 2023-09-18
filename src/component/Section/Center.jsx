@@ -6,7 +6,7 @@ export default function Center(props) {
       <img className="image center" src={props.src} alt="" />
       <div className="textWrapper center">
         <h4>{props.head || "dlxorbs"}</h4>
-        <p className="text">{props.text}</p>
+        <textarea readyonly className="text" value={props.text}></textarea>
       </div>
     </div>
   );

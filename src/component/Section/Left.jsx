@@ -11,7 +11,7 @@ export default function Left(props) {
         >
           {props.head || "dlxorbs"}
         </h4>
-        <p className="text">{props.text}</p>
+        <textarea readyonly className="text" value={props.text}></textarea>
       </div>
 
       <img className={`image ${props.img || ""}`} src={props.src} alt="" />

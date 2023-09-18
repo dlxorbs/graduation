@@ -1,0 +1,128 @@
+:root {
+    --maincolor : #3775BB;
+    --fontcolor : #696969;
+}
+
+.TopUi{
+    background-color: rgba(255, 255, 255, 0.9);
+    z-index: 99;
+    width: 100%;
+    height: 80px;
+    box-sizing: border-box;
+    position: fixed;
+    top:0;
+    backdrop-filter: blur(40px);
+    padding: 20px;
+}
+
+.Flex{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.Flex img{
+    width: 103px;
+}
+
+.Menu{
+    display: flex;
+    gap: 40px;
+}
+
+.Menu span{
+    font-family: 'Pretendard';
+    color: var(--fontcolor);
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+/* Video.jsx */
+
+.moveImage{
+    width: 1600px;
+    transform: translate(3%,-2%);
+}
+
+.imageCut{
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+/* MainBottom.jsx */
+.left{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-size: 18px;
+}
+
+.right{
+    font-size: 48px;
+    font-weight: 500;
+}
+
+
+.left img{
+    width: 89px;
+    height: 40px;
+}
+
+.MainBottomLine{
+    background-color: rgb(255, 255, 255);
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+    border-top: 1px solid var(--maincolor);
+    transition: transform 0.2s ease-in-out;
+    box-sizing: border-box;
+}
+
+.MainBottom{
+    color: var(--maincolor);
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: auto;
+    font-family: 'Pretendard';
+    font-weight: Bold;
+    box-sizing: border-box;
+}
+
+
+
+/* Footer */
+.Footer{
+    height: 230px;
+    padding-top: 56px;
+}
+
+.MainBottom2{
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    font-size: 12px;
+    color: var(--maincolor);
+    justify-content: space-between;
+    margin-top: 30px;
+    line-height: 180%;
+    font-family: 'Pretendard';
+    font-weight: 400;
+}
+
+.MainBottom2 div:nth-child(3){
+    text-align: end;
+}

@@ -36,7 +36,7 @@ function Header(props) {
               title="PROJECT"
               onClick={function () {
                 console.log("콘테스트 아카이빙로 이동");
-                nav("/Archive");
+                nav("/project");
               }}
             />
             <Nav

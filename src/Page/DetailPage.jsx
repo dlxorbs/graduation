@@ -6,6 +6,7 @@ import $ from "jquery";
 import Left from "../component/Section/Left";
 import Right from "../component/Section/Right";
 import Center from "../component/Section/Center";
+import MainImg from "../component/Section/MainImage";
 
 import symbol from "../component/Img/symbol.png";
 import symbol700 from "../component/Img/700symbol.png";
@@ -101,63 +102,57 @@ export default function DetailPage() {
 
   return (
     <div className={styles.page_Wrapper}>
-      <div className={styles.DetailContainer}>
-        <div className={styles.Page_SecondWrapper}>
-          <Left
-            width={550}
-            head={"Background"}
-            text={backtext}
-            src={backthumb}
-          />
+      <MainImg src={mainthumb}></MainImg>
+      <div className={styles.Page_SecondWrapper}>
+        <Left width={550} head={"Background"} text={backtext} src={backthumb} />
 
-          <Right
-            width={550}
-            head={"Research"}
-            text={restext}
-            src={researchthumb}
-          />
+        <Right
+          width={550}
+          head={"Research"}
+          text={restext}
+          src={researchthumb}
+        />
 
-          <Center
-            width={550}
-            head={"Project Goal"}
-            text={goaltext}
-            src={goalthumb}
-          />
+        <Center
+          width={550}
+          head={"Project Goal"}
+          text={goaltext}
+          src={goalthumb}
+        />
 
-          <Left
-            type={"function"}
-            img={"functionImg"}
-            head={"Function 01"}
-            text={func01text}
-            src={function01thumb}
-          />
-          <Right
-            type={"function"}
-            img={"functionImg"}
-            head={"Function 02"}
-            text={func02text}
-            src={function02thumb}
-          />
-          <Left
-            type={"function"}
-            img={"functionImg"}
-            head={"Function 03"}
-            text={func03text}
-            src={function03thumb}
-          />
+        <Left
+          type={"function"}
+          img={"functionImg"}
+          head={"Function 01"}
+          text={func01text}
+          src={function01thumb}
+        />
+        <Right
+          type={"function"}
+          img={"functionImg"}
+          head={"Function 02"}
+          text={func02text}
+          src={function02thumb}
+        />
+        <Left
+          type={"function"}
+          img={"functionImg"}
+          head={"Function 03"}
+          text={func03text}
+          src={function03thumb}
+        />
 
-          <div className={styles.videoContainer}>
-            <h4>Video</h4>
-            <iframe
-              width="1200"
-              height="720"
-              src={video}
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen
-            ></iframe>
-          </div>
+        <div className={styles.videoContainer}>
+          <h4>Video</h4>
+          <iframe
+            width="1200"
+            height="720"
+            src={video}
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
         </div>
       </div>
     </div>

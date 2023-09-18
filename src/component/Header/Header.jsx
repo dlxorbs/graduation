@@ -28,21 +28,18 @@ function Header(props) {
             <Nav
               title="ABOUT"
               onClick={function () {
-                console.log("진행중인 콘테스트로 이동");
                 nav("/Now");
               }}
             />
             <Nav
               title="PROJECT"
               onClick={function () {
-                console.log("콘테스트 아카이빙로 이동");
                 nav("/project");
               }}
             />
             <Nav
               title="DESIGNERS"
               onClick={function () {
-                console.log("콘테스트 공지사항로 이동");
                 nav("/Notice");
               }}
             />

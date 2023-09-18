@@ -23,13 +23,12 @@ export default function ArchivePage() {
             ...doc.data(),
           };
           Datas.push(postData);
-
         });
         setData(Datas);
         setFiltered(Datas);
       });
+    console.log(data);
   }, []);
-  useEffect(() => {});
 
   return (
     <div className={styles.page_Wrapper}>

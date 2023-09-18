@@ -28,7 +28,7 @@ function Header(props) {
             <Nav
               title="ABOUT"
               onClick={function () {
-                nav("/Now");
+                nav("/About");
               }}
             />
             <Nav
@@ -41,6 +41,12 @@ function Header(props) {
               title="DESIGNERS"
               onClick={function () {
                 nav("/Notice");
+              }}
+            />
+            <Nav
+              title="GUSET BOOKS"
+              onClick={function () {
+                nav("/guestbook");
               }}
             />
           </div>

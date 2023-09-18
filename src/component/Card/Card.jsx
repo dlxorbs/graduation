@@ -5,8 +5,7 @@ import Button from "../Button/Button";
 import styles from "./card.module.css";
 
 // 카드 페이지 카드에 각각 썸네일과 버튼이 있거나로 제작했었음
-
-export default function Card(props) {
+function Card(props) {
   return (
     <div className={styles.card} style={props.style}>
       <CardThumb
@@ -20,3 +19,5 @@ export default function Card(props) {
     </div>
   );
 }
+
+export default React.memo(Card);

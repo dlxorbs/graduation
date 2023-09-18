@@ -15,4 +15,7 @@ const firebaseApp = firebase.initializeApp(firebaseConfig);
 
 const db = firebaseApp.firestore();
 
+// Firestore 설정을 수정할 때 { merge: true } 옵션을 사용합니다.
+db.settings({ experimentalForceLongPolling: true }, { merge: true });
+
 export { firebase, firebaseApp, db };

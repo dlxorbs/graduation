@@ -41,13 +41,6 @@ function MainPage() {
       <Video></Video>
       <MainBottom move={showMainBottom}></MainBottom>
       <Concept></Concept>
-      <Typography></Typography>
-      <Designsystem></Designsystem>
-      <Symbol></Symbol>
-      <Variation></Variation>
-      <Mockup></Mockup>
-      <Credit></Credit>
-      <Footer></Footer>
     </div>
   );
 }

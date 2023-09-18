@@ -1,0 +1,11 @@
+.Button {
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+}
+
+.Button > span {
+  position: absolute;
+  color: var(--G1);
+}

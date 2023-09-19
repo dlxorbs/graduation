@@ -1,7 +1,8 @@
-:root {
-  --contianerweb-l: 1200px;
-  --contianerweb-m: 1064px;
-  --contianerweb-s: 704px;
+.headerContainer {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px;
+  width: 1200px;
 }
 
 .headerWrapper {
@@ -19,12 +20,6 @@
 }
 .logo {
   cursor: pointer;
-}
-.headerContainer {
-  display: flex;
-  justify-content: space-between;
-  padding: 12px;
-  width: 1200px;
 }
 
 .profWrapper {
@@ -62,4 +57,78 @@
 
 .nav {
   cursor: pointer;
+  transition: 0.4s;
+}
+
+.nav:hover {
+  color: var(--P1);
+}
+
+.activeNav {
+  color: var(--P1);
+}
+
+/* Nav에 호버 했을 때 물결 효과 */
+.nav:hover span:nth-child(1) {
+  animation: wave 0.5s infinite;
+  animation-delay: 0.1s; /* 첫 번째 글자에 0.1초 delay 적용 */
+}
+
+.nav:hover span:nth-child(2) {
+  animation: wave 0.5s infinite;
+  animation-delay: 0.2s; /* 두 번째 글자에 0.2초 delay 적용 */
+}
+
+/* 다른 글자에 대해서도 동일한 방식으로 설정 */
+.nav:hover span:nth-child(3) {
+  animation: wave 0.5s infinite;
+  animation-delay: 0.3s; /* 세 번째 글자에 0.3초 delay 적용 */
+}
+/* 다른 글자에 대해서도 동일한 방식으로 설정 */
+.nav:hover span:nth-child(4) {
+  animation: wave 0.5s infinite;
+  animation-delay: 0.3s; /* 세 번째 글자에 0.3초 delay 적용 */
+}
+
+/* 다른 글자에 대해서도 동일한 방식으로 설정 */
+.nav:hover span:nth-child(5) {
+  animation: wave 0.5s infinite;
+  animation-delay: 0.3s; /* 세 번째 글자에 0.3초 delay 적용 */
+}
+
+/* 다른 글자에 대해서도 동일한 방식으로 설정 */
+.nav:hover span:nth-child(6) {
+  animation: wave 0.5s infinite;
+  animation-delay: 0.3s; /* 세 번째 글자에 0.3초 delay 적용 */
+}
+
+/* @keyframes를 사용하여 물결 애니메이션 정의 */
+@keyframes wave {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px); /* 물결이 위로 이동하는 효과 */
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 1500px) {
+  .headerContainer {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px;
+    width: var(--web1000);
+  }
+}
+
+@media (max-width: 1200px) {
+  .headerContainer {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px;
+    width: var(--web800);
+  }
 }

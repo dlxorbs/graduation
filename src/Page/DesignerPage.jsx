@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 import styles from "./Page.module.css";
 import { db } from "../firebase.js";
-import CardList from "../component/Card/CardList";
+import DesignerList from "../component/Card/DesignerList";
 
-// Fisher-Yates 셔플 함수
 function shuffleArray(array) {
   const shuffledArray = [...array];
   for (let i = shuffledArray.length - 1; i > 0; i--) {
@@ -13,7 +12,7 @@ function shuffleArray(array) {
   return shuffledArray;
 }
 
-export default function ArchivePage() {
+export default function DesignerPage() {
   const [data, setData] = useState([]);
   const [filtered, setFiltered] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -21,16 +20,15 @@ export default function ArchivePage() {
 
   useEffect(() => {
     let Datas = [];
-    db.collection("post")
+    db.collection("Image")
       .get()
       .then((qs) => {
         qs.forEach((doc) => {
-          const postData = {
+          const postImgData = {
             id: doc.id,
-            ...doc.data().main,
-            ...doc.data().data,
+            ...doc.data(),
           };
-          Datas.push(postData);
+          Datas.push(postImgData);
         });
         setData(Datas);
         setFiltered(Datas);
@@ -50,7 +48,7 @@ export default function ArchivePage() {
           {isLoading ? (
             <div className={styles.loading}>데이터를 불러오는 중...</div>
           ) : randomData.length > 0 ? ( // randomData를 사용하여 화면에 표시
-            <CardList data={randomData} type={"Archive"} />
+            <DesignerList data={randomData} type={"Archive"} />
           ) : (
             <div className={styles.nothing}>내용이 없습니다.</div>
           )}

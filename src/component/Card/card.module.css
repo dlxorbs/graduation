@@ -1,6 +1,6 @@
 .thumbnailContainer {
   position: relative;
-  width: 100%;
+  width: 285px;
   height: 285px;
   overflow: hidden;
   display: flex;
@@ -15,7 +15,7 @@
   align-items: center;
   background-image: var(--thumbnail);
   background-size: cover;
-  background-position: center;
+  background-position: top;
 }
 
 .bottomOverlay {
@@ -54,8 +54,9 @@
 .card {
   display: flex;
   width: 285px;
+  height: 285px;
   gap: 10px;
-  height: auto;
+
   flex-direction: column;
   align-items: center;
 }
@@ -71,4 +72,95 @@
 .work {
   font-size: 22px;
   font-weight: 700;
+}
+
+@media (max-width: 1500px) {
+  .cardList {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    transition: 0.8s;
+  }
+
+  .card {
+    display: flex;
+    width: 30%;
+    height: 30%;
+    gap: 10px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .thumbnailContainer {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    border-radius: 16px;
+    transition: 0.8s;
+  }
+}
+
+@media (max-width: 1200px) {
+  .cardList {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    transition: 0.8s;
+  }
+
+  .card {
+    display: flex;
+    width: 48%;
+    gap: 10px;
+    height: 48%;
+    flex-direction: column;
+    align-items: center;
+  }
+  .thumbnailContainer {
+    position: relative;
+    width: 100%;
+    height: 330px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    border-radius: 16px;
+    transition: 0.8s;
+  }
+}
+
+@media (max-width: 800px) {
+  .cardList {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .card {
+    display: flex;
+    width: 100%;
+    gap: 10px;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .thumbnailContainer {
+    position: relative;
+    width: 100%;
+    height: 700px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    border-radius: 16px;
+    transition: 0.8s;
+  }
 }

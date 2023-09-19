@@ -74,6 +74,12 @@
   font-weight: 700;
 }
 
+.GuestList {
+  width: 600px;
+  display: flex;
+  justify-content: space-between;
+}
+
 @media (max-width: 1500px) {
   .cardList {
     width: 100%;

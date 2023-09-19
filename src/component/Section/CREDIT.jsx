@@ -100,6 +100,7 @@ function Credit(props) {
             <span>이태균</span>
             <span>조희수</span>
             <span>정은지</span>
+            <span>김한종 교수님</span>
           </div>
         </div>
       </div>

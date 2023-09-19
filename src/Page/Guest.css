@@ -9,3 +9,43 @@
   position: absolute;
   color: var(--G1);
 }
+
+.toggleSwitch {
+  width: 100px;
+  height: 50px;
+  display: block;
+  position: relative;
+  border-radius: 30px;
+  background-color: var(--P1);
+  box-shadow: 0 0 16px 3px rgba(0 0 0 / 15%);
+  cursor: pointer;
+}
+
+.toggleSwitch .toggleButton {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 50%;
+  left: 4px;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  background: var(--G1);
+}
+
+#toggle:checked ~ .toggleSwitch {
+  background: var(--G1);
+}
+
+#toggle:checked ~ .toggleSwitch .toggleButton {
+  left: calc(100% - 44px);
+  background: var(--P1);
+}
+
+.toggleSwitch,
+.toggleButton {
+  transition: all 0.2s ease-in;
+}
+
+.CardContainer > img {
+  box-shadow: 0px 4px 24px 0px rgba(206, 219, 232, 0.6);
+}

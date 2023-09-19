@@ -7,7 +7,8 @@ import CardList from "../component/Card/CardList";
 import logo from "../component/Img/Union.svg";
 import Button from "../component/Button/Button";
 import "./Guest.css";
-import GuestCard from "../component/Card/GusetCard";
+import GuestCardList from "../component/Card/GuestCardList";
+import GuestWriteCard from "../component/Card/GusetWriteCard";
 export default function GuestBookPage() {
   const [data, setData] = useState([]); // 기본 데이터 지정
   const [filtered, setFiltered] = useState([]); // data에서 기반으로 필터링한 데이터 저장
@@ -19,7 +20,7 @@ export default function GuestBookPage() {
 
   const [detail, setDetail] = useState("");
 
-  const [type, setType] = useState("");
+  const [checked, setChecked] = useState(false);
 
   // firebase 데이터 가져오기
   useEffect(() => {
@@ -52,7 +53,7 @@ export default function GuestBookPage() {
 
       from: from,
 
-      type: type,
+      type: checked,
     };
 
     db.collection("GusetBook")
@@ -67,8 +68,9 @@ export default function GuestBookPage() {
     <div className={styles.page_Wrapper}>
       <div className={styles.GuestContainer}>
         <div className={styles.writeContainer}>
-          <GuestCard
+          <GuestWriteCard
             type={"write"}
+            src={checked}
             Tovalue={to}
             onTochange={(e) => {
               setTo(e.target.value);
@@ -82,14 +84,33 @@ export default function GuestBookPage() {
               console.log(from);
             }}
             Fromvalue={from}
-          ></GuestCard>
-          <Button
-            onClick={(e) => {
-              done();
-            }}
-          ></Button>
+          ></GuestWriteCard>
+
+          <div className={styles.btnContainer}>
+            <input
+              type="checkbox"
+              id="toggle"
+              hidden
+              checked={checked}
+              onClick={(e) => {
+                setChecked(!checked);
+              }}
+            />
+
+            <label for="toggle" class="toggleSwitch">
+              <span class="toggleButton"></span>
+            </label>
+
+            <Button
+              onClick={(e) => {
+                done();
+              }}
+            ></Button>
+          </div>
         </div>
-        <div className={styles.CardCon}></div>
+        <div className={styles.CardCon}>
+          <GuestCardList data={data}></GuestCardList>
+        </div>
       </div>
     </div>
   );

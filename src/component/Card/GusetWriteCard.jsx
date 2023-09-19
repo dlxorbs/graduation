@@ -2,14 +2,14 @@ import React from "react";
 import "./Guestcard.css";
 import CardimgBlue from "../Img/CardBlue.svg";
 import CardimgWhite from "../Img/CardWhite.svg";
-export default function GuestCard(props) {
+export default function GuestWriteCard(props) {
   return (
     <div className={`CardContainer ${props.type}`}>
       <div className="card">
         <div className={`to ${props.type === "write" ? "bigfont" : "smfont"}`}>
           <span
             style={{
-              "--color": props.color || "#ffffff",
+              "--color": props.src ? "#3775BB" : "#ffffff" || "#ffffff",
               // border: "1px solid #66666640",
             }}
           >
@@ -17,7 +17,7 @@ export default function GuestCard(props) {
           </span>
           <textarea
             style={{
-              "--color": props.color || "#ffffff",
+              "--color": props.src ? "#3775BB" : "#ffffff" || "#ffffff",
               // border: "1px solid #66666640",
             }}
             placeholder={"받을 사람을 입력해주세요."}
@@ -31,7 +31,7 @@ export default function GuestCard(props) {
             props.type === "write" ? "bigfont" : "smfont"
           }`}
           style={{
-            "--color": props.color || "#ffffff",
+            "--color": props.src ? "#3775BB" : "#ffffff" || "#ffffff",
             // border: "1px solid #66666640",
           }}
           placeholder={"편지를 입력해 주세요."}
@@ -46,7 +46,7 @@ export default function GuestCard(props) {
         >
           <span
             style={{
-              "--color": props.color || "#ffffff",
+              "--color": props.src ? "#3775BB" : "#ffffff" || "#ffffff",
               // border: "1px solid #66666640",
             }}
           >
@@ -54,7 +54,7 @@ export default function GuestCard(props) {
           </span>
           <textarea
             style={{
-              "--color": props.color || "#ffffff",
+              "--color": props.src ? "#3775BB" : "#ffffff" || "#ffffff",
               // border: "1px solid #66666640",
             }}
             placeholder={"보낼 사람을 입력해주세요."}
@@ -63,7 +63,7 @@ export default function GuestCard(props) {
           ></textarea>
         </div>
       </div>
-      <img src={CardimgBlue} alt="" />
+      <img src={props.src ? CardimgWhite : CardimgBlue || CardimgBlue} alt="" />
     </div>
   );
 }

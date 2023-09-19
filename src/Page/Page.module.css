@@ -2,7 +2,7 @@
   /* width: 1200px; */
   min-height: calc(900px - 72px);
   height: auto;
-  margin: 72px auto;
+  margin: 72px auto 0px;
 
   align-items: center;
   display: flex;
@@ -80,13 +80,18 @@ h3 {
 }
 
 .GuestContainer {
+  position: relative;
   display: flex;
   justify-content: space-between;
-  width: 100%;
+  width: var(--web1200);
+  height: 100%;
 }
 
 .writeContainer {
+  position: sticky;
   display: flex;
+  height: 100%;
+  top: 85px;
   flex-direction: column;
 }
 
@@ -105,6 +110,19 @@ h3 {
   height: 100%;
 }
 
+.btnContainer {
+  width: 570px;
+  margin-top: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.CardCon {
+  width: 600px;
+  height: auto;
+}
 @media (max-width: 1500px) {
   .Page_SecondWrapper {
     position: relative;

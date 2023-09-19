@@ -73,7 +73,7 @@
   z-index: 999;
 }
 
-.btn:hover .floatani {
+/* .btn:hover .floatani {
   position: absolute;
   width: 90px;
   height: 90px;
@@ -82,12 +82,27 @@
   animation-duration: 1s;
   animation-name: scaled;
   bottom: -120px;
+} */
+
+.btn:active .floatani {
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  border-radius: 9999px;
+  background-color: var(--P2);
+  animation-duration: 1s;
+  animation-name: scaled;
+
+  bottom: -120px;
+
+  top: var(--top);
+  left: var(--left);
 }
 
 @keyframes scaled {
   0% {
     transform: scale(0.5);
-    background-color: var(--G9);
+    background-color: var(--P1);
   }
   100% {
     transform: scale(3.5);

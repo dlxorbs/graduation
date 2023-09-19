@@ -5,6 +5,7 @@ import { db } from "../firebase.js";
 import $ from "jquery";
 import CardList from "../component/Card/CardList";
 import logo from "../component/Img/Union.svg";
+import Button from "../component/Button/Button";
 import "./Guest.css";
 import GuestCard from "../component/Card/GusetCard";
 export default function GuestBookPage() {
@@ -17,6 +18,8 @@ export default function GuestBookPage() {
   const [from, setFrom] = useState("");
 
   const [detail, setDetail] = useState("");
+
+  const [type, setType] = useState("");
 
   // firebase 데이터 가져오기
   useEffect(() => {
@@ -39,15 +42,25 @@ export default function GuestBookPage() {
   }, []);
 
   const done = async function () {
+    const timestamp = new Date().getTime().toString();
     const guest = {
+      id: timestamp,
+
       to: to,
 
       detail: detail,
 
       from: from,
+
+      type: type,
     };
 
-    db.collection("GusetBook").set(guest);
+    db.collection("GusetBook")
+      .doc(timestamp)
+      .set(guest)
+      .then(() => {
+        console.log("작성됨");
+      });
   };
 
   return (
@@ -70,7 +83,11 @@ export default function GuestBookPage() {
             }}
             Fromvalue={from}
           ></GuestCard>
-        
+          <Button
+            onClick={(e) => {
+              done();
+            }}
+          ></Button>
         </div>
         <div className={styles.CardCon}></div>
       </div>

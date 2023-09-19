@@ -11,6 +11,7 @@ import AboutPage from "./Page/AboutPage";
 import GusetBookPage from "./Page/GuestBook";
 import Footer from "./component/Ui/footer";
 import DesignerPage from "./Page/DesignerPage";
+import ProfileDetailPage from "./Page/ProfileDetailPage";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -24,6 +25,7 @@ root.render(
       <Route path="/guestbook" element={<GusetBookPage />}></Route>
       <Route path="/about" element={<AboutPage />}></Route>
       <Route path="/designer" element={<DesignerPage />}></Route>
+      <Route path="designer/:id" element={<ProfileDetailPage />}></Route>
     </Routes>
     <Footer></Footer>
   </BrowserRouter>

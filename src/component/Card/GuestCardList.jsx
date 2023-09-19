@@ -22,5 +22,5 @@ export default function GuestCardList(props) {
     );
   });
 
-  return <div className={styles.cardList}>{list}</div>;
+  return <div className={styles.guestcardList}>{list}</div>;
 }

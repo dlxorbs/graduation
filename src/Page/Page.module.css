@@ -1,13 +1,16 @@
 .page_Wrapper {
   /* width: 1200px; */
   min-height: calc(900px - 72px);
-  height: auto;
+  height: 100%;
   margin: 72px auto 0px;
 
   align-items: center;
   display: flex;
   justify-content: center;
   flex-direction: column;
+}
+
+.overflow {
   overflow-x: hidden;
 }
 
@@ -85,6 +88,7 @@ h3 {
   justify-content: space-between;
   width: var(--web1200);
   height: 100%;
+  padding-top: 80px;
 }
 
 .writeContainer {
@@ -120,9 +124,17 @@ h3 {
 }
 
 .CardCon {
-  width: 600px;
+  width: 100%;
   height: auto;
 }
+
+.imageContainer {
+  width: var(--web1200);
+  height: 100%;
+}
+
+
+
 @media (max-width: 1500px) {
   .Page_SecondWrapper {
     position: relative;

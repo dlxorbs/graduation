@@ -4,7 +4,7 @@
   width: 100%;
   display: flex;
   gap: 60px;
-  justify-content: center;
+  justify-content: space-between;
 }
 
 .RightContianer {
@@ -12,7 +12,7 @@
   width: 100%;
   display: flex;
   gap: 60px;
-  justify-content: center;
+  justify-content: space-between;
 }
 
 .CenterContainer {
@@ -34,6 +34,14 @@
 .image {
   width: 590px;
   height: 460px;
+}
+
+h1 {
+  color: var(--G1);
+  font-size: 70px;
+  width: auto;
+  line-height: 160%;
+  margin: 0;
 }
 
 h4 {
@@ -68,6 +76,8 @@ h4 {
 .mainImage {
   width: 100vw;
   position: relative;
+  display: flex;
+  justify-content: center;
 }
 
 .smimg {
@@ -104,4 +114,46 @@ textarea {
 
 textarea:focus {
   outline: none;
+}
+
+.maintext {
+  color: var(--G1);
+  z-index: 3;
+}
+
+.maintext > span {
+  font-weight: 400;
+  font-size: 28px;
+}
+
+.maintextcon {
+  width: var(--web1200);
+  height: auto;
+  margin: 0 auto;
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  bottom: 56px;
+  color: var(--G1);
+  z-index: 3;
+}
+
+.member {
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.major {
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-right: 30px;
+}
+
+.studentcontainer {
+  display: flex;
 }

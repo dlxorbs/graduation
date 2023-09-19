@@ -15,7 +15,7 @@ import Footer from "../component/Ui/footer";
 
 export default function AboutPage() {
   return (
-    <div className={styles.Page_Wrapper}>
+    <div className={`${styles.page_Wrapper} ${styles.overflow}`}>
       <Concept></Concept>
       <Typography></Typography>
       <Designsystem></Designsystem>

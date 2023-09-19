@@ -35,6 +35,7 @@ export default function ArchivePage() {
         setData(Datas);
         setFiltered(Datas);
         setIsLoading(false);
+        console.log(data);
       });
   }, []);
 
@@ -44,7 +45,7 @@ export default function ArchivePage() {
   }, [filtered]);
 
   return (
-    <div className={styles.page_Wrapper}>
+    <div className={`${styles.page_Wrapper} ${styles.overflow}`}>
       <div className={styles.InnerContainer}>
         <div className={styles.CardCon}>
           {isLoading ? (

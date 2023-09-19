@@ -18,7 +18,7 @@ export default function DesignerList(props) {
         // major={item.major == "1" ? "산업디자인공학" : "미디어디자인공학"}
         onClick={function () {
           console.log(item.id + "이동");
-          nav("/designers/" + item.id);
+          nav("/designer/" + item.id);
         }}
       />
     );

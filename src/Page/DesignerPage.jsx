@@ -42,7 +42,7 @@ export default function DesignerPage() {
   }, [filtered]);
 
   return (
-    <div className={styles.page_Wrapper}>
+    <div className={`${styles.page_Wrapper} ${styles.overflow}`}>
       <div className={styles.InnerContainer}>
         <div className={styles.CardCon}>
           {isLoading ? (

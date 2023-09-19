@@ -3,8 +3,6 @@ import ChipFilter from "../component/Input/ChipFilter";
 import styles from "./Page.module.css";
 import { db } from "../firebase.js";
 import $ from "jquery";
-import CardList from "../component/Card/CardList";
-import logo from "../component/Img/Union.svg";
 import Button from "../component/Button/Button";
 import "./Guest.css";
 import GuestCardList from "../component/Card/GuestCardList";

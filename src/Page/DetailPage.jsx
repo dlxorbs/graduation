@@ -50,6 +50,7 @@ export default function DetailPage() {
       .then((doc) => {
         if (doc.exists) {
           Datas = doc.data();
+          console.log(Datas);
           // 썸네잉ㄹ
           setMainthumb(Datas.main?.img || symbol1920);
           setbackthumb(Datas.background?.img || symbol);
@@ -92,17 +93,22 @@ export default function DetailPage() {
               ? Datas.func[2].content
               : ""
           );
-
+          setData(Datas?.data);
           setVideo(Datas.video || "");
         }
         setDummy(Datas);
-        console.log(dummy);
+        console.log(data);
       });
   }, []);
 
   return (
-    <div className={styles.page_Wrapper}>
-      <MainImg src={mainthumb}></MainImg>
+    <div className={`${styles.page_Wrapper} ${styles.overflow}`}>
+      <MainImg
+        data={data}
+        src={mainthumb}
+        main={maintext}
+        oneline={onelinetext}
+      ></MainImg>
       <div className={styles.Page_SecondWrapper}>
         <Left width={550} head={"Background"} text={backtext} src={backthumb} />
 

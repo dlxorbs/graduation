@@ -31,7 +31,7 @@ function MainPage() {
   }, []);
 
   return (
-    <div className={styles.page_Wrapper}>
+    <div className={`${styles.page_Wrapper} ${styles.overflow}`}>
       <Video></Video>
       <MainBottom move={showMainBottom}></MainBottom>
       <Concept></Concept>

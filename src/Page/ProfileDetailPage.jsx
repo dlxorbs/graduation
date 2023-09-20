@@ -20,29 +20,42 @@ export default function ProfileDetailPage() {
   const [teamthumbnail, setteamThumbnail] = useState([]);
 
   useEffect(() => {
+    let imageDatas = {};
+    let postDatas = [];
+
     // 이미지 데이터 가져오기
     db.collection("Image")
       .doc(postId)
       .get()
       .then((doc) => {
         if (doc.exists) {
-          const imageDocData = { id: doc.id, ...doc.data() };
-          setImageData(imageDocData); // 이미지 데이터를 설정합니다.
-          setImage(imageDocData.img);
+          imageDatas = { id: doc.id, ...doc.data() };
+          setImageData(imageDatas); // 이미지 데이터를 설정합니다.
+          setImage(imageDatas.img);
 
-          // 이미지 데이터가 로드되면 해당 이미지 데이터를 사용하여 다른 데이터를 가져옵니다.
+          // 이미지 데이터를 가져온 후에 post 데이터 가져오기
           db.collection("post")
-            .doc(imageDocData.id + "_s")
+            .doc(imageDatas.id + "_s")
             .get()
-            .then((postDoc) => {
-              if (postDoc.exists) {
-                const postData = postDoc.data();
+            .then((doc) => {
+              if (doc.exists) {
+                const postData = {
+                  id: doc.id,
+                  ...doc.data(),
+                };
+
                 setStudentname(postData.data.studentinfo[0]);
-                setMajor(postData.data?.major || "");
-                setEmail(postData.profile?.email || "");
+                setMajor(postData.data?.major);
+                setEmail(postData.profile?.email);
                 setProf(postData.profile?.prof);
-                setComment(postData.profile.comment);
-                setThumbnail(postData.data.thumbnail);
+                setComment(postData.profile?.comment);
+                setThumbnail(postData.data?.thumbnail);
+
+                // 그 외의 필요한 데이터를 설정합니다.
+
+                setData(postData);
+
+                console.log(data);
               }
             })
             .catch((error) => {
@@ -54,53 +67,64 @@ export default function ProfileDetailPage() {
         console.error("Error getting image document:", error);
       });
 
-    // 초기 데이터 가져오기 (teamdata)
+    // 이미지 데이터와 post 데이터를 배열로 사용하거나 다른 작업을 수행할 수 있습니다.
+  }, []);
+
+  useEffect(() => {
+    let teamDatas = [];
+
+    // 팀 데이터 가져오기
     db.collection("post")
       .where("data.type", "==", "t")
       .where("data.teamMembers", "array-contains", postId)
       .get()
       .then((querySnapshot) => {
-        let Datas = [];
         querySnapshot.forEach((doc) => {
-          const postData = doc.data();
-          Datas.push(postData);
+          const postData = {
+            id: doc.id,
+            ...doc.data(),
+          };
+          teamDatas.push(postData);
         });
-
-        setTeamData(Datas);
+        // 팀 데이터를 설정합니다.
+        setTeamData(teamDatas);
+        console.log(teamDatas);
       })
       .catch((error) => {
         console.error("Error getting team documents:", error);
       });
-  }, [postId]);
+  }, [imagedata, postId]);
 
   return (
     <div className={styles.page_Wrapper}>
-      <div className={styles.imageContainer}>
-        <div
-          className={styles.img}
-          style={{ "--src": "url(" + image + ")" }}
-        ></div>
+      <div className={styles.InnerContainer}>
+        <div className={styles.imageContainer}>
+          <div
+            className={styles.img}
+            style={{ "--src": "url(" + image + ")" }}
+          ></div>
 
-        <div className={styles.profileContainer}>
-          <div className={styles.name}>
-            <div className={styles.pfst}>
-              <h5>{studentname}</h5>
-              <span> 지도교수 {prof}</span>
+          <div className={styles.profileContainer}>
+            <div className={styles.name}>
+              <div className={styles.pfst}>
+                <h5>{studentname}</h5>
+                <span> 지도교수 {prof}</span>
+              </div>
+
+              <div className={styles.profile}>
+                <p>
+                  {major == "2" ? "미디어디자인공학전공" : "산업디자인공학전공"}
+                </p>
+                <p>{email}</p>
+              </div>
+
+              <span className={styles.comment}> {comment}</span>
             </div>
 
-            <div className={styles.profile}>
-              <p>
-                {major == "2" ? "미디어디자인공학전공" : "산업디자인공학전공"}
-              </p>
-              <p>{email}</p>
+            <div className="project">
+              <h6>Projects</h6>
+              {/* <CardList data={data}></CardList> */}
             </div>
-
-            <span className={styles.comment}> {comment}</span>
-          </div>
-
-          <div className="project">
-            <h6>Projects</h6>
-            {/* 여기에서 teamdata 및 개인데이터를 사용하여 프로젝트 정보 표시 */}
           </div>
         </div>
       </div>

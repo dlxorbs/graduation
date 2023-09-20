@@ -55,6 +55,7 @@
 
 /* 각 섹션 공통 */
 .Section {
+  width: 100vw;
   padding-bottom: 160px;
   font-family: "Pretendard";
 }

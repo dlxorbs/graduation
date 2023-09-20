@@ -17,7 +17,7 @@ export default function GuestCardList(props) {
         type={item.type}
         to={item.to}
         from={item.from}
-        detail={props.detail}
+        detail={item.detail}
       />
     );
   });

@@ -29,6 +29,25 @@ export default function ProfileDetailPage() {
           const imageDocData = { id: doc.id, ...doc.data() };
           setImageData(imageDocData); // 이미지 데이터를 설정합니다.
           setImage(imageDocData.img);
+
+          // 이미지 데이터가 로드되면 해당 이미지 데이터를 사용하여 다른 데이터를 가져옵니다.
+          db.collection("post")
+            .doc(imageDocData.id + "_s")
+            .get()
+            .then((postDoc) => {
+              if (postDoc.exists) {
+                const postData = postDoc.data();
+                setStudentname(postData.data.studentinfo[0]);
+                setMajor(postData.data?.major || "");
+                setEmail(postData.profile?.email || "");
+                setProf(postData.profile?.prof);
+                setComment(postData.profile.comment);
+                setThumbnail(postData.data.thumbnail);
+              }
+            })
+            .catch((error) => {
+              console.error("Error getting post document:", error);
+            });
         }
       })
       .catch((error) => {
@@ -46,63 +65,43 @@ export default function ProfileDetailPage() {
           const postData = doc.data();
           Datas.push(postData);
         });
-        setTeamData(Datas);
-        setteamThumbnail(teamdata[0].data.img);
 
-        setData([teamdata[0].data, teamdata[0].main]);
+        setTeamData(Datas);
       })
       .catch((error) => {
         console.error("Error getting team documents:", error);
       });
   }, [postId]);
 
-  useEffect(() => {
-    // 이미지 데이터가 로드되면 해당 이미지 데이터를 사용하여 다른 데이터를 가져옵니다.
-    if (imagedata.id) {
-      db.collection("post")
-        .doc(imagedata.id + "_s")
-        .get()
-        .then((postDoc) => {
-          if (postDoc.exists) {
-            const postData = postDoc.data();
-            setStudentname(postData.studentname);
-            setMajor(postData.data.major);
-            setEmail(postData.profile.email);
-            setProf(postData.profile.prof);
-            setComment(postData.profile.comment);
-            setThumbnail(postData.data.thumbnail);
-          }
-        })
-        .catch((error) => {
-          console.error("Error getting post document:", error);
-        });
-    }
-  }, [imagedata]);
-
   return (
     <div className={styles.page_Wrapper}>
       <div className={styles.imageContainer}>
-        <img src={image} alt="" />
+        <div
+          className={styles.img}
+          style={{ "--src": "url(" + image + ")" }}
+        ></div>
 
-        <div className="name">
-          <div className={styles.university}>
-            <h5>{studentname}</h5>
-            <span> 지도교수 {prof}</span>
+        <div className={styles.profileContainer}>
+          <div className={styles.name}>
+            <div className={styles.pfst}>
+              <h5>{studentname}</h5>
+              <span> 지도교수 {prof}</span>
+            </div>
+
+            <div className={styles.profile}>
+              <p>
+                {major == "2" ? "미디어디자인공학전공" : "산업디자인공학전공"}
+              </p>
+              <p>{email}</p>
+            </div>
+
+            <span className={styles.comment}> {comment}</span>
           </div>
 
-          <div className={styles.profile}>
-            <p>
-              {major == "1" ? "미디어디자인공학전공" : "산업디자인공학전공"}
-            </p>
-            <p>{email}</p>
+          <div className="project">
+            <h6>Projects</h6>
+            {/* 여기에서 teamdata 및 개인데이터를 사용하여 프로젝트 정보 표시 */}
           </div>
-
-          <span className={styles.comment}> {comment}</span>
-        </div>
-
-        <div className="project">
-          <h6>Projects</h6>
-          {/* <CardList></CardList> */}
         </div>
       </div>
     </div>

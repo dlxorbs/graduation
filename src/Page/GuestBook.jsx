@@ -7,6 +7,7 @@ import Button from "../component/Button/Button";
 import "./Guest.css";
 import GuestCardList from "../component/Card/GuestCardList";
 import GuestWriteCard from "../component/Card/GusetWriteCard";
+import Search from "../component/Ui/Search";
 export default function GuestBookPage() {
   const [data, setData] = useState([]); // 기본 데이터 지정
   const [filtered, setFiltered] = useState([]); // data에서 기반으로 필터링한 데이터 저장
@@ -20,25 +21,29 @@ export default function GuestBookPage() {
 
   const [checked, setChecked] = useState(false);
 
-  // firebase 데이터 가져오기
   useEffect(() => {
-    let Datas = [];
-    db.collection("GusetBook")
-      .get()
-      .then((qs) => {
-        qs.forEach((doc) => {
-          // 문서 ID를 포함하여 데이터를 가져옴
-          const postData = {
-            id: doc.id,
-            ...doc.data(),
-          };
-          console.log(doc.data());
-          Datas.push(postData);
-        });
-        setData(Datas);
-        setFiltered(Datas);
+    // Firebase Firestore에서 "GuestBook" 컬렉션에 대한 참조를 만듭니다.
+    const guestBookRef = db.collection("GuestBook");
+
+    // "GuestBook" 컬렉션에 대한 실시간 업데이트를 수신하는 리스너를 설정합니다.
+    const unsubscribe = guestBookRef.onSnapshot((querySnapshot) => {
+      const updatedData = [];
+      querySnapshot.forEach((doc) => {
+        // 문서 ID를 포함하여 데이터를 가져옴
+        const postData = {
+          id: doc.id,
+          ...doc.data(),
+        };
+        updatedData.push(postData);
       });
-  }, []);
+      setData(updatedData); // 업데이트된 데이터를 상태에 반영합니다.
+    });
+
+    // 컴포넌트가 언마운트되면 리스너를 정리합니다.
+    return () => {
+      unsubscribe(); // 리스너 정리
+    };
+  }, []); // 빈 배열을 전달하여 컴포넌트가 마운트될 때 한 번만 실행되도록 합니다.
 
   const done = async function () {
     const timestamp = new Date().getTime().toString();
@@ -54,12 +59,21 @@ export default function GuestBookPage() {
       type: checked,
     };
 
-    db.collection("GusetBook")
-      .doc(timestamp)
-      .set(guest)
-      .then(() => {
-        console.log("작성됨");
-      });
+    if (to == "" || from == "" || detail == "") {
+      alert("글을 모두 입력해 주세요.");
+    } else {
+      db.collection("GuestBook")
+        .doc(timestamp)
+        .set(guest)
+        .then(() => {
+          console.log("작성됨");
+        });
+
+      setChecked(false);
+      setDetail("");
+      setFrom("");
+      setTo("");
+    }
   };
 
   return (
@@ -100,6 +114,7 @@ export default function GuestBookPage() {
             </label>
 
             <Button
+              title={"작성하기"}
               onClick={(e) => {
                 done();
               }}
@@ -107,7 +122,22 @@ export default function GuestBookPage() {
           </div>
         </div>
         <div className={styles.CardCon}>
-          <GuestCardList data={data}></GuestCardList>
+          {data.length > 0 ? (
+            <GuestCardList data={data}></GuestCardList>
+          ) : (
+            <span
+              style={{
+                width: "100%",
+                height: "100%",
+                textAlign: "center",
+                color: "var(--G3)",
+                "font-size": "24px",
+                "font-weight": "700",
+              }}
+            >
+              내용이 없습니다.
+            </span>
+          )}
         </div>
       </div>
     </div>

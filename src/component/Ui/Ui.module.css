@@ -120,3 +120,29 @@
 .MainBottom2 div:nth-child(3) {
   text-align: end;
 }
+
+.search {
+  position: absolute;
+}
+
+.searchBar {
+  box-sizing: border-box;
+  width: 100%;
+  height: 42px;
+  border: 2px var(--maincolor) solid;
+  padding: 0px 42px;
+}
+.searchBar:focus {
+  outline: none;
+}
+.searchBar::placeholder {
+  color: var(--G4);
+}
+.searchIcon {
+  position: absolute;
+  right: 0px;
+  top: 50%;
+  transform: translate(-20%, -44%);
+  background: none;
+  border: none;
+}

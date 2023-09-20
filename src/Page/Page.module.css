@@ -122,18 +122,76 @@ h3 {
   justify-content: space-between;
   align-items: center;
 }
-
+h5 {
+  font-size: 32px;
+  font-weight: 700;
+  margin: 0;
+}
 .CardCon {
   width: 100%;
   height: auto;
+}
+.major,
+.email {
+  font-size: 16;
+}
+.comment {
+  font-size: 18px;
+  color: var(--P1);
+  margin: 48px 0px 0px;
+}
+.profile {
+  display: flex;
+  margin-top: 24px;
+  flex-direction: column;
+}
+
+.profile > p {
+  margin: 0;
+}
+
+h6 {
+  margin: 0;
+  color: var(--P1);
+  margin-top: 32px;
+  font-size: 20px;
+}
+
+.pfst {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+}
+
+.pfst > span {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.profileContainer {
+  width: 590px;
+  height: 595px;
+}
+.name {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .imageContainer {
   width: var(--web1200);
   height: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
-
+.img {
+  width: 450px;
+  height: 595px;
+  background-image: var(--src);
+  background-size: cover;
+}
 
 @media (max-width: 1500px) {
   .Page_SecondWrapper {
@@ -152,6 +210,23 @@ h3 {
     padding-top: 56px;
     display: flex;
   }
+
+  .GuestContainer {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    width: var(--web1000);
+    height: 100%;
+    padding-top: 80px;
+  }
+  .btnContainer {
+    width: calc(570px * 3 / 4);
+    margin-top: calc(40px * 3 / 4);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
 
 @media (max-width: 1200px) {
@@ -164,11 +239,29 @@ h3 {
     gap: 240px;
   }
 
+  .GuestContainer {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    width: var(--web800);
+    height: 100%;
+    padding-top: 80px;
+  }
+
   .InnerContainer {
     position: relative;
     width: var(--web800);
     height: 100%;
     padding-top: 56px;
     display: flex;
+  }
+
+  .btnContainer {
+    width: calc(570px * 3 / 4);
+    margin-top: calc(40px * 3 / 4);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
   }
 }

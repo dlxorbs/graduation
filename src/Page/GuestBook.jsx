@@ -8,6 +8,7 @@ import "./Guest.css";
 import GuestCardList from "../component/Card/GuestCardList";
 import GuestWriteCard from "../component/Card/GusetWriteCard";
 import Search from "../component/Ui/Search";
+import FloatButton from "../component/Button/FloatButton";
 export default function GuestBookPage() {
   const [data, setData] = useState([]); // 기본 데이터 지정
   const [filtered, setFiltered] = useState([]); // data에서 기반으로 필터링한 데이터 저장
@@ -20,6 +21,8 @@ export default function GuestBookPage() {
   const [detail, setDetail] = useState("");
 
   const [checked, setChecked] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   useEffect(() => {
     // Firebase Firestore에서 "GuestBook" 컬렉션에 대한 참조를 만듭니다.
     const guestBookRef = db.collection("GuestBook");
@@ -74,11 +77,17 @@ export default function GuestBookPage() {
       setTo("");
     }
   };
-
+  useEffect(() => {
+    console.log("isModalOpen",isModalOpen);
+  },[isModalOpen]);
+  const handleOpen = () => {
+    
+    setIsModalOpen(!isModalOpen);
+  }
   return (
     <div className={styles.page_Wrapper}>
       <div className={styles.GuestContainer}>
-        <div className={styles.writeContainer}>
+        <div className={`${styles.writeContainer} ${isModalOpen ? styles.mobileWrite: ""}`}>
           <GuestWriteCard
             type={"write"}
             src={checked}
@@ -120,7 +129,10 @@ export default function GuestBookPage() {
             ></Button>
           </div>
         </div>
-        <div className={styles.CardCon}>
+        {
+          isModalOpen ?     null :
+          <>
+          <div className={styles.CardCon}>
           {data.length > 0 ? (
             <GuestCardList data={data}></GuestCardList>
           ) : (
@@ -138,7 +150,13 @@ export default function GuestBookPage() {
             </span>
           )}
         </div>
+       
+          </>
+          
+        }
+    
       </div>
+      <FloatButton icon={"add"} onClick={handleOpen}/>
     </div>
   );
 }

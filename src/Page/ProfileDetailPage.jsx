@@ -8,7 +8,7 @@ export default function ProfileDetailPage() {
   const nav = useNavigate();
   const postId = useParams().id;
   const [teamdata, setTeamData] = useState({});
-  const [data, setData] = useState("");
+  const [data, setData] = useState([]);
   const [imagedata, setImageData] = useState({});
   const [image, setImage] = useState("");
   const [studentname, setStudentname] = useState("");
@@ -16,12 +16,12 @@ export default function ProfileDetailPage() {
   const [email, setEmail] = useState("");
   const [prof, setProf] = useState("");
   const [comment, setComment] = useState("");
-  const [thumbnail, setThumbnail] = useState([]);
+  const [thumbnail, setThumbnail] = useState("");
   const [teamthumbnail, setteamThumbnail] = useState([]);
 
   useEffect(() => {
     let imageDatas = {};
-    let postDatas = [];
+    let postDatas = {};
 
     // 이미지 데이터 가져오기
     db.collection("Image")
@@ -49,12 +49,8 @@ export default function ProfileDetailPage() {
                 setEmail(postData.profile?.email);
                 setProf(postData.profile?.prof);
                 setComment(postData.profile?.comment);
-                setThumbnail(postData.data?.thumbnail);
 
                 // 그 외의 필요한 데이터를 설정합니다.
-
-                setData(postData);
-
                 console.log(data);
               }
             })
@@ -62,38 +58,45 @@ export default function ProfileDetailPage() {
               console.error("Error getting post document:", error);
             });
         }
-      })
-      .catch((error) => {
-        console.error("Error getting image document:", error);
       });
 
-    // 이미지 데이터와 post 데이터를 배열로 사용하거나 다른 작업을 수행할 수 있습니다.
-  }, []);
+    // 개인작의 데이터를 가져오는 함수
+    db.collection("post")
+      .doc(postId + "_s")
+      .get()
+      .then((doc) => {
+        if (doc.exists) {
+          postDatas = { id: doc.id, ...doc.data().data, ...doc.data().main };
 
-  useEffect(() => {
-    let teamDatas = [];
+          // 개인작 세팅 후에 팀작 검색 시작
+          Datas.push(postDatas); // Datas 배열에 개인작 데이터를 추가합니다.
+          console.log(Datas);
+        }
+      });
 
-    // 팀 데이터 가져오기
+    const Datas = []; // Datas 배열을 초기화합니다.
+
     db.collection("post")
       .where("data.type", "==", "t")
       .where("data.teamMembers", "array-contains", postId)
       .get()
-      .then((querySnapshot) => {
-        querySnapshot.forEach((doc) => {
-          const postData = {
+      .then((qs) => {
+        qs.forEach((doc) => {
+          const teamDatas = {
             id: doc.id,
-            ...doc.data(),
+            ...doc.data().data,
+            ...doc.data().main,
           };
-          teamDatas.push(postData);
+          console.log(teamDatas);
+
+          // 필요한 작업 수행
         });
-        // 팀 데이터를 설정합니다.
-        setTeamData(teamDatas);
-        console.log(teamDatas);
-      })
-      .catch((error) => {
-        console.error("Error getting team documents:", error);
+        // 모든 팀작 데이터가 추가된 Datas 배열을 상태로 설정합니다.
+        setData(Datas);
       });
-  }, [imagedata, postId]);
+
+    // setThumbnail(Datas); // 이 부분은 필요 없는 것 같으므로 주석 처리했습니다.
+  }, []);
 
   return (
     <div className={styles.page_Wrapper}>
@@ -118,12 +121,13 @@ export default function ProfileDetailPage() {
                 <p>{email}</p>
               </div>
 
-              <span className={styles.comment}> {comment}</span>
+              <span className={styles.comment}> " {comment} "</span>
             </div>
 
             <div className="project">
               <h6>Projects</h6>
-              {/* <CardList data={data}></CardList> */}
+              <CardList data={data}></CardList>{" "}
+              {/* CardList 컴포넌트에 수정된 데이터를 전달합니다. */}
             </div>
           </div>
         </div>

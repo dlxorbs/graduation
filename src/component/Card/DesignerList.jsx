@@ -8,7 +8,12 @@ import { useNavigate } from "react-router-dom";
 // 카드에 맵함수 돌림.
 export default function DesignerList(props) {
   const nav = useNavigate();
-
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+    });
+  };
+  
   const list = props.data.map((item) => {
     return (
       <Designer
@@ -19,6 +24,7 @@ export default function DesignerList(props) {
         onClick={function () {
           console.log(item.id + "이동");
           nav("/designer/" + item.id);
+          scrollToTop();
         }}
       />
     );

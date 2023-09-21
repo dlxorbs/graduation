@@ -1,3 +1,7 @@
+.main {
+  overflow: hidden;
+}
+
 .page_Wrapper {
   /* width: 1200px; */
   min-height: calc(900px - 72px);
@@ -138,6 +142,7 @@ h5 {
 .comment {
   font-size: 18px;
   color: var(--P1);
+  line-height: 160%;
   margin: 48px 0px 0px;
 }
 .profile {
@@ -193,6 +198,20 @@ h6 {
   background-size: cover;
 }
 
+.randomBtn {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 20px;
+}
+
+.ran {
+  font-size: 18px;
+  color: var(--P1);
+}
+
 @media (max-width: 1500px) {
   .Page_SecondWrapper {
     position: relative;
@@ -209,6 +228,7 @@ h6 {
     height: 100%;
     padding-top: 56px;
     display: flex;
+    flex-direction: column;
   }
 
   .GuestContainer {

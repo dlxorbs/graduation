@@ -27,7 +27,7 @@ root.render(
       <Route path="/designer" element={<DesignerPage />}></Route>
       <Route path="designer/:id" element={<ProfileDetailPage />}></Route>
     </Routes>
-    <Footer></Footer>
+    {window.location.pathname !== "/" && <Footer />}
   </BrowserRouter>
 );
 

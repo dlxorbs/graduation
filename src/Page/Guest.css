@@ -7,7 +7,7 @@
 
 .Button > span {
   position: absolute;
-  color: var(--G1);
+  color: var(--P1);
 }
 
 .toggleSwitch {
@@ -16,7 +16,7 @@
   display: block;
   position: relative;
   border-radius: 30px;
-  background-color: var(--P1);
+  background-color: var(--G1);
   box-shadow: 0 0 16px 3px rgba(0 0 0 / 15%);
   cursor: pointer;
 }
@@ -29,16 +29,43 @@
   left: 4px;
   transform: translateY(-50%);
   border-radius: 50%;
-  background: var(--G1);
+  background: var(--P1);
+}
+
+.toggleSwitch.sm {
+  width: 50px;
+  height: 25px;
+  display: block;
+  position: relative;
+  border-radius: 30px;
+  background-color: var(--G1);
+  box-shadow: 0 0 8px 1px rgba(0 0 0 / 15%);
+  cursor: pointer;
+}
+
+.toggleSwitch.sm .toggleButton {
+  width: 19px;
+  height: 19px;
+  position: absolute;
+  top: 50%;
+  left: 4px;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  background: var(--P1);
 }
 
 #toggle:checked ~ .toggleSwitch {
-  background: var(--G1);
+  background: var(--P1);
 }
 
 #toggle:checked ~ .toggleSwitch .toggleButton {
-  left: calc(100% - 44px);
-  background: var(--P1);
+  left: calc(100% - 23px);
+  background: var(--G1);
+}
+
+#toggle:checked ~ .toggleSwitch .toggleButton.sm {
+  left: 100%;
+  background: var(--G1);
 }
 
 .toggleSwitch,

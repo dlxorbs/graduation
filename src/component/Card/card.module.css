@@ -40,7 +40,7 @@
 
 .bottomOverlay > span {
   display: block;
-  text-align: left;
+  text-align: center;
   text-overflow: ellipsis;
   opacity: 0;
 }
@@ -81,6 +81,9 @@
 .work {
   font-size: 22px;
   font-weight: 700;
+  max-width: 60%;
+  word-break: keep-all;
+  text-align: center;
 }
 
 .GuestList {

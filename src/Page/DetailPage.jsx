@@ -151,8 +151,6 @@ export default function DetailPage() {
         <div className={styles.videoContainer}>
           <h4>Video</h4>
           <iframe
-            width="1200"
-            height="720"
             src={video}
             title="YouTube video player"
             frameborder="0"

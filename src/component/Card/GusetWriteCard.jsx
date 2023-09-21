@@ -9,7 +9,7 @@ export default function GuestWriteCard(props) {
         <div className={`to ${props.type === "write" ? "bigfont" : "smfont"}`}>
           <span
             style={{
-              "--color": props.src ? "#3775BB" : "#ffffff" || "#ffffff",
+              "--color": props.src ? "#ffffff" : "#3775BB" || "#3775BB",
               // border: "1px solid #66666640",
             }}
           >
@@ -17,7 +17,7 @@ export default function GuestWriteCard(props) {
           </span>
           <textarea
             style={{
-              "--color": props.src ? "#3775BB" : "#ffffff" || "#ffffff",
+              "--color": props.src ? "#ffffff" : "#3775BB" || "#3775BB",
               // border: "1px solid #66666640",
             }}
             placeholder={"받을 사람을 입력해주세요."}
@@ -31,7 +31,7 @@ export default function GuestWriteCard(props) {
             props.type === "write" ? "bigfont" : "smfont"
           }`}
           style={{
-            "--color": props.src ? "#3775BB" : "#ffffff" || "#ffffff",
+            "--color": props.src ? "#ffffff" : "#3775BB" || "#3775BB",
             // border: "1px solid #66666640",
           }}
           placeholder={"편지를 입력해 주세요."}
@@ -46,7 +46,7 @@ export default function GuestWriteCard(props) {
         >
           <span
             style={{
-              "--color": props.src ? "#3775BB" : "#ffffff" || "#ffffff",
+              "--color": props.src ? "#ffffff" : "#3775BB" || "#3775BB",
               // border: "1px solid #66666640",
             }}
           >
@@ -54,7 +54,7 @@ export default function GuestWriteCard(props) {
           </span>
           <textarea
             style={{
-              "--color": props.src ? "#3775BB" : "#ffffff" || "#ffffff",
+              "--color": props.src ? "#ffffff" : "#3775BB" || "#3775BB",
               // border: "1px solid #66666640",
             }}
             placeholder={"보낼 사람을 입력해주세요."}
@@ -63,7 +63,10 @@ export default function GuestWriteCard(props) {
           ></textarea>
         </div>
       </div>
-      <img src={props.src ? CardimgWhite : CardimgBlue || CardimgBlue} alt="" />
+      <img
+        src={props.src ? CardimgBlue : CardimgWhite || CardimgWhite}
+        alt=""
+      />
     </div>
   );
 }

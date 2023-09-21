@@ -46,7 +46,7 @@ export default function DesignerPage() {
       <div className={styles.InnerContainer}>
         <div className={styles.CardCon}>
           {isLoading ? (
-            <div className={styles.loading}>데이터를 불러오는 중...</div>
+            <div className={styles.loading}> 졸업생을 불러오는 중...</div>
           ) : randomData.length > 0 ? ( // randomData를 사용하여 화면에 표시
             <DesignerList data={randomData} type={"Archive"} />
           ) : (

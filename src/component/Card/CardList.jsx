@@ -20,6 +20,12 @@ export default function CardList(props) {
       // 그 외의 경우는 item.studentinfo를 사용
       studentinfo = item.studentinfo;
     }
+    // 스크롤 초기화 함수
+    const scrollToTop = () => {
+      window.scrollTo({
+        top: 0,
+      });
+    };
 
     return (
       <Card
@@ -29,9 +35,12 @@ export default function CardList(props) {
         type={props.type}
         // major={item.major == "1" ? "산업디자인공학" : "미디어디자인공학"}
         studentinfo={studentinfo}
+
         onClick={function () {
           console.log(item.id + "이동");
           nav("/project/" + item.id);
+
+          scrollToTop();
         }}
       />
     );

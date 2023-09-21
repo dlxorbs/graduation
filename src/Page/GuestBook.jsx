@@ -20,12 +20,10 @@ export default function GuestBookPage() {
   const [detail, setDetail] = useState("");
 
   const [checked, setChecked] = useState(false);
-
   useEffect(() => {
     // Firebase Firestore에서 "GuestBook" 컬렉션에 대한 참조를 만듭니다.
     const guestBookRef = db.collection("GuestBook");
 
-    // "GuestBook" 컬렉션에 대한 실시간 업데이트를 수신하는 리스너를 설정합니다.
     const unsubscribe = guestBookRef.onSnapshot((querySnapshot) => {
       const updatedData = [];
       querySnapshot.forEach((doc) => {
@@ -34,9 +32,11 @@ export default function GuestBookPage() {
           id: doc.id,
           ...doc.data(),
         };
-        updatedData.push(postData);
+        updatedData.unshift(postData); // 데이터를 역순으로 추가합니다.
       });
-      setData(updatedData); // 업데이트된 데이터를 상태에 반영합니다.
+
+      setData(updatedData); // 업데이트된 데이터를 역순으로 상태에 반영합니다.
+      setFiltered(updatedData);
     });
 
     // 컴포넌트가 언마운트되면 리스너를 정리합니다.
@@ -44,7 +44,6 @@ export default function GuestBookPage() {
       unsubscribe(); // 리스너 정리
     };
   }, []); // 빈 배열을 전달하여 컴포넌트가 마운트될 때 한 번만 실행되도록 합니다.
-
   const done = async function () {
     const timestamp = new Date().getTime().toString();
     const guest = {

@@ -3,21 +3,20 @@ import styles from "./Ui.module.css";
 import Search2 from "../Img/Search.svg";
 
 function Search(props) {
-  const [search, setSearch] = useState("");
-  const onChange = (e) => {
-    setSearch(e.target.value);
-  };
-
   return (
     <div className={styles.search}>
       <input
         className={styles.searchBar}
         type="text"
-        value={search}
+        value={props.value}
         placeholder="2010123456"
-        onChange={onChange}
+        onChange={props.onChange}
       />
-      <button className={styles.searchIcon} type="button">
+      <button
+        className={styles.searchIcon}
+        onClick={props.onClick}
+        type="button"
+      >
         <img src={Search2} alt="logo image" />
       </button>
     </div>

@@ -31,7 +31,7 @@ function Header(props) {
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: "smooth", // 부드럽게 스크롤 이동
+
     });
   };
 

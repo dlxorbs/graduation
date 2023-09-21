@@ -4,8 +4,17 @@
   -moz-user-drag: none;
   -ms-use-drag: none;
   display: flex;
-  align-items: center;
+  align-items: stretch;
   justify-content: center;
+}
+@media screen and (max-width:660px){
+  .CardContainer{
+    display: flex;
+    max-width: 100%;
+    height: auto;
+    position: relative;
+    align-items: stretch;
+  }
 }
 .read {
   width: 285px;
@@ -138,6 +147,13 @@ textarea::-webkit-input-placeholder {
   width: 600px;
 }
 
+@media screen and (max-width: 660px) {
+  .card{
+    max-width: 90%;
+    height: auto;
+    position: relative;
+  }
+}
 @media (max-width: 1500px) {
   .bigfont {
     margin-bottom: 30px;

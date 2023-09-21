@@ -1,27 +1,28 @@
 .floatButton {
-  display: flex;
+  display: none;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   /*font-family: ;*/
   font-size: 16px;
   background-color: var(--FB);
-
   border: none;
   border-radius: 1000px;
-
   width: 64px;
   height: 64px;
-
-  /* left: 10px;
-  top: 10px; */
-
+  position: relative;
+  bottom: 30px;
+  left: 100px;
   overflow: hidden;
   color: var(--P2);
-
+  z-index: 10;
   backdrop-filter: blur(5px);
 }
-
+@media screen and (max-width:660px){
+  .floatButton{
+    display: flex;
+  }
+}
 .floatButton > span {
   position: absolute;
   align-self: center;

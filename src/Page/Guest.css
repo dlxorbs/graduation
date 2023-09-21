@@ -1,78 +1,262 @@
-.Button {
-  display: flex;
+.CardContainer {
   position: relative;
+  -webkit-user-drag: none;
+  -moz-user-drag: none;
+  -ms-use-drag: none;
+  display: flex;
   align-items: center;
   justify-content: center;
 }
-
-.Button > span {
-  position: absolute;
-  color: var(--P1);
+.read {
+  width: 285px;
+  height: 285px;
 }
 
-.toggleSwitch {
-  width: 100px;
-  height: 50px;
-  display: block;
-  position: relative;
-  border-radius: 30px;
-  background-color: var(--G1);
-  box-shadow: 0 0 16px 3px rgba(0 0 0 / 15%);
-  cursor: pointer;
-}
-
-.toggleSwitch .toggleButton {
-  width: 40px;
-  height: 40px;
-  position: absolute;
-  top: 50%;
-  left: 4px;
-  transform: translateY(-50%);
-  border-radius: 50%;
-  background: var(--P1);
-}
-
-.toggleSwitch.sm {
-  width: 50px;
-  height: 25px;
-  display: block;
-  position: relative;
-  border-radius: 30px;
-  background-color: var(--G1);
-  box-shadow: 0 0 8px 1px rgba(0 0 0 / 15%);
-  cursor: pointer;
-}
-
-.toggleSwitch.sm .toggleButton {
-  width: 19px;
-  height: 19px;
-  position: absolute;
-  top: 50%;
-  left: 4px;
-  transform: translateY(-50%);
-  border-radius: 50%;
-  background: var(--P1);
-}
-
-#toggle:checked ~ .toggleSwitch {
-  background: var(--P1);
-}
-
-#toggle:checked ~ .toggleSwitch .toggleButton {
-  left: calc(100% - 23px);
-  background: var(--G1);
-}
-
-#toggle:checked ~ .toggleSwitch .toggleButton.sm {
-  left: 100%;
-  background: var(--G1);
-}
-
-.toggleSwitch,
-.toggleButton {
-  transition: all 0.2s ease-in;
+.write {
+  width: 570px;
+  height: 570px;
 }
 
 .CardContainer > img {
-  box-shadow: 0px 4px 24px 0px rgba(206, 219, 232, 0.6);
+  width: 100%;
+  height: 100%;
+
+  position: absolute;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-use-select: none;
+  user-select: none;
+
+  -webkit-user-drag: none;
+  -moz-user-drag: none;
+  -ms-use-drag: none;
+}
+.GuestCardContainer > img {
+  width: 100%;
+  height: 100%;
+
+  position: absolute;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-use-select: none;
+  user-select: none;
+
+  -webkit-user-drag: none;
+  -moz-user-drag: none;
+  -ms-use-drag: none;
+}
+
+.detail {
+  width: 220px;
+  height: 120px;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  color: var(--color);
+  font-family: "Pretendard-Regular";
+  background-color: transparent;
+}
+.guestcard > span {
+  display: block;
+  font-size: 14px;
+}
+
+.TextInput {
+  width: 440px;
+  height: 200px;
+  white-space: normal;
+  resize: none;
+  overflow-wrap: anywhere;
+  border: none;
+  color: var(--color);
+  box-sizing: border-box;
+  font-family: "Pretendard-Regular";
+  word-break: break-all;
+  text-align: justify;
+  background-color: transparent;
+}
+
+.card {
+  position: absolute;
+  z-index: 1;
+  width: 440px;
+  height: 320px;
+  margin: 160px auto 90px;
+}
+
+.guestcard {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: calc(75px) calc(32px) calc(32px);
+  z-index: 1;
+  width: 220px;
+  gap: 20px;
+}
+
+.to,
+.from {
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.to > span,
+.from > span {
+  font-family: "Pretendard-Regular";
+  background-color: transparent;
+  line-height: 100%;
+  color: var(--color);
+  font-weight: 400;
+}
+
+.to > textarea,
+.from > textarea {
+  font-family: "Pretendard-Regular";
+  vertical-align: baseline;
+  width: 100%;
+  height: 23px;
+  background-color: transparent;
+
+  line-height: 100%;
+  color: var(--color);
+}
+
+.bigfont {
+  margin-bottom: 40px;
+  font-size: 20px;
+  line-height: 100%;
+  align-items: baseline;
+}
+
+textarea::-webkit-input-placeholder {
+  color: #ffffff80;
+  font-weight: 400;
+}
+
+.GusetCardContainer {
+  width: 600px;
+}
+
+@media (max-width: 1500px) {
+  .bigfont {
+    margin-bottom: 30px;
+    font-size: 15px;
+    line-height: 100%;
+  }
+  .card {
+    position: absolute;
+    z-index: 1;
+    width: 330px;
+    height: calc(100% - 250px * 3 / 4);
+    margin: calc(160px * 3 / 4) auto calc(90px * 3 / 4);
+  }
+  .detail {
+    width: calc(220px * 3 / 4);
+    height: calc(100px * 3 / 4);
+    white-space: normal;
+    overflow-wrap: anywhere;
+    color: var(--color);
+    font-family: "Pretendard-Regular";
+    background-color: transparent;
+  }
+
+  .write {
+    width: calc(570px - 570px / 4);
+    height: calc(570px - 570px / 4);
+  }
+
+  .TextInput {
+    width: calc(440px * 3 / 4);
+    height: calc(200px * 3 / 4);
+    white-space: normal;
+    resize: none;
+    overflow-wrap: anywhere;
+    border: none;
+    color: var(--color);
+    box-sizing: border-box;
+    font-family: "Pretendard-Regular";
+    word-break: break-all;
+    text-align: justify;
+    background-color: transparent;
+  }
+
+  .guestcard {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: calc(75px) calc(32px) calc(32px);
+    z-index: 1;
+    width: 220px;
+    gap: 20px;
+  }
+
+  .detail {
+    width: calc(220px);
+    height: calc(100px);
+    white-space: normal;
+    overflow-wrap: anywhere;
+    color: var(--color);
+    font-family: "Pretendard-Regular";
+    background-color: transparent;
+  }
+  .guestcard > span {
+    display: block;
+    font-size: 14px;
+  }
+
+  .read {
+    width: 285px;
+    height: 285px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .guestcard {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: calc(75px * 3 / 4) calc(32px * 3 / 4) calc(32px * 3 / 4);
+    z-index: 1;
+    width: calc(220px * 3 / 4);
+    gap: calc(20px * 3 / 4);
+  }
+
+  .detail {
+    width: calc(220px * 3 / 4);
+    height: calc(100px * 3 / 4);
+    white-space: normal;
+    overflow-wrap: anywhere;
+    color: var(--color);
+    font-family: "Pretendard-Regular";
+    background-color: transparent;
+  }
+  .guestcard > span {
+    display: block;
+    font-size: 10px;
+    font-weight: 300;
+  }
+  .to,
+  .from {
+    font-size: 10px;
+  }
+
+  .to > span,
+  .from > span {
+    font-weight: 200;
+  }
+
+  .write .to > span,
+  .write .from > span {
+    font-size: 16px;
+  }
+  .read {
+    width: calc(285px * 3 / 4);
+    height: calc(285px * 3 / 4);
+  }
 }

@@ -13,7 +13,6 @@
   background-color: var(--G6);
 }
 
-
 @font-face {
   font-family: "Pretendard-Regular";
   src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
@@ -82,6 +81,7 @@ body {
   --web1200: 1200px;
   --web1000: 1064px;
   --web800: 704px;
+  --webmobiled: 343px;
   --grid-col-l: 4;
   --grid-col-m: 3;
   --grid-col-s: 2;

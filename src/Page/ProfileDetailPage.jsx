@@ -49,14 +49,9 @@ export default function ProfileDetailPage() {
                 setEmail(postData.profile?.email);
                 setProf(postData.profile?.prof);
                 setComment(postData.profile?.comment);
-
-                // 그 외의 필요한 데이터를 설정합니다.
-                console.log(data);
               }
             })
-            .catch((error) => {
-              console.error("Error getting post document:", error);
-            });
+            .catch((error) => {});
         }
       });
 
@@ -70,13 +65,17 @@ export default function ProfileDetailPage() {
 
           // 개인작 세팅 후에 팀작 검색 시작
           Datas.push(postDatas); // Datas 배열에 개인작 데이터를 추가합니다.
-          console.log(Datas);
         }
       });
 
     const Datas = []; // Datas 배열을 초기화합니다.
-    console.log(typeof postId);
+
     db.collection("post")
+      // .where('')
+      // .where("data.teamMembers.studentId", "array-contains", postId)
+      // .where("studentId", "==", postId)
+      .where("data.type", "==", "t")
+      // .where("data.teamMembers", "array-contains", postId)
       .get()
       .then((qs) => {
         qs.forEach((doc) => {
@@ -85,8 +84,18 @@ export default function ProfileDetailPage() {
             ...doc.data().main,
             ...doc.data().data,
           };
-          // 필요한 작업 수행
+          let stdid = [];
+          let team = [];
+          teamDatas.teamMembers.map((item) => {
+            stdid.push(item.studentId);
+          });
+          if (stdid.includes(postId)) {
+            console.log("true:", teamDatas);
 
+            Datas.push(teamDatas);
+          }
+
+          // 필요한 작업 수행
         });
         // 모든 팀작 데이터가 추가된 Datas 배열을 상태로 설정합니다.
         setData(Datas);

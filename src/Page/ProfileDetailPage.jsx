@@ -66,7 +66,7 @@ export default function ProfileDetailPage() {
       .get()
       .then((doc) => {
         if (doc.exists) {
-          postDatas = { id: doc.id, ...doc.data().data, ...doc.data().main };
+          postDatas = { id: doc.id, ...doc.data().main, ...doc.data().data };
 
           // 개인작 세팅 후에 팀작 검색 시작
           Datas.push(postDatas); // Datas 배열에 개인작 데이터를 추가합니다.
@@ -84,8 +84,8 @@ export default function ProfileDetailPage() {
         qs.forEach((doc) => {
           const teamDatas = {
             id: doc.id,
-            ...doc.data().data,
             ...doc.data().main,
+            ...doc.data().data,
           };
           console.log(teamDatas);
 
@@ -124,7 +124,7 @@ export default function ProfileDetailPage() {
               <span className={styles.comment}> " {comment} "</span>
             </div>
 
-            <div className="project">
+            <div className={styles.project}>
               <h6>Projects</h6>
               <CardList data={data}></CardList>{" "}
               {/* CardList 컴포넌트에 수정된 데이터를 전달합니다. */}

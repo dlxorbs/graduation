@@ -75,10 +75,8 @@ export default function ProfileDetailPage() {
       });
 
     const Datas = []; // Datas 배열을 초기화합니다.
-
+    console.log(typeof postId);
     db.collection("post")
-      .where("data.type", "==", "t")
-      .where("data.teamMembers", "array-contains", postId)
       .get()
       .then((qs) => {
         qs.forEach((doc) => {
@@ -87,9 +85,8 @@ export default function ProfileDetailPage() {
             ...doc.data().main,
             ...doc.data().data,
           };
-          console.log(teamDatas);
-
           // 필요한 작업 수행
+
         });
         // 모든 팀작 데이터가 추가된 Datas 배열을 상태로 설정합니다.
         setData(Datas);

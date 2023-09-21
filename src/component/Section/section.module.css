@@ -12,7 +12,8 @@
 }
 
 .leftVideo img {
-  width: 1200px;
+  max-width: 100%;
+   height: auto !important;
   position: absolute;
   transform: translate(-10%);
 }
@@ -252,8 +253,6 @@
     "a b d h";
 }
 
-.moc .grid div {
-}
 
 .moc .grid div {
   width: 100%;

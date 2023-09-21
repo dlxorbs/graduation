@@ -10,8 +10,8 @@ function Symbol(props) {
     <div className={`${styles.Section} ${styles.sym}`}>
       <Section text={"SYMBOL"}></Section>
       <h5 className={styles.sectionTitle}>
-        물방울들이 모여서 우리만의 흐름을 만들어내는 동시에 무엇이든 형상화 할
-        수 있는 ‘OO’을 표현합니다.
+      <span className={styles.wide_screen_text}>물방울들이 모여서 우리만의 흐름을 만들어내는 동시에 무엇이든 형상화 할 수 있는 ‘OO’을 표현합니다.</span>
+      <span className={styles.narrow_screen_text}>물방울들이 모여서 우리만의 흐름을 만들어내는<br/>동시에 무엇이든 형상화 할 수 있는 ‘OO’을 표현합니다.</span>
       </h5>
       <div className={styles.symbolArea}>
         <div className={styles.guide}>

@@ -16,6 +16,7 @@ export default function GuestWriteCard(props) {
             TO.
           </span>
           <textarea
+            className={props.src ? "" : "bluecolor"}
             style={{
               "--color": props.src ? "#ffffff" : "#3775BB" || "#3775BB",
               // border: "1px solid #66666640",
@@ -29,7 +30,7 @@ export default function GuestWriteCard(props) {
         <textarea
           className={`TextInput ${
             props.type === "write" ? "bigfont" : "smfont"
-          }`}
+          } ${props.src ? "" : "bluecolor"}`}
           style={{
             "--color": props.src ? "#ffffff" : "#3775BB" || "#3775BB",
             // border: "1px solid #66666640",
@@ -53,6 +54,7 @@ export default function GuestWriteCard(props) {
             FROM.
           </span>
           <textarea
+            className={props.src ? "" : "bluecolor"}
             style={{
               "--color": props.src ? "#ffffff" : "#3775BB" || "#3775BB",
               // border: "1px solid #66666640",

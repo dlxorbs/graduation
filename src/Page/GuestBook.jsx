@@ -23,6 +23,8 @@ export default function GuestBookPage() {
   const [checked, setChecked] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  const [rotate, setRotate] = useState(false);
+
   useEffect(() => {
     // Firebase Firestore에서 "GuestBook" 컬렉션에 대한 참조를 만듭니다.
     const guestBookRef = db.collection("GuestBook");
@@ -78,16 +80,20 @@ export default function GuestBookPage() {
     }
   };
   useEffect(() => {
-    console.log("isModalOpen",isModalOpen);
-  },[isModalOpen]);
+    console.log("isModalOpen", isModalOpen);
+  }, [isModalOpen]);
   const handleOpen = () => {
-    
     setIsModalOpen(!isModalOpen);
-  }
+    setRotate(!rotate);
+  };
   return (
     <div className={styles.page_Wrapper}>
       <div className={styles.GuestContainer}>
-        <div className={`${styles.writeContainer} ${isModalOpen ? styles.mobileWrite: ""}`}>
+        <div
+          className={`${styles.writeContainer} ${
+            isModalOpen ? styles.mobileWrite : ""
+          }`}
+        >
           <GuestWriteCard
             type={"write"}
             src={checked}
@@ -129,34 +135,30 @@ export default function GuestBookPage() {
             ></Button>
           </div>
         </div>
-        {
-          isModalOpen ?     null :
+        {isModalOpen ? null : (
           <>
-          <div className={styles.CardCon}>
-          {data.length > 0 ? (
-            <GuestCardList data={data}></GuestCardList>
-          ) : (
-            <span
-              style={{
-                width: "100%",
-                height: "100%",
-                textAlign: "center",
-                color: "var(--G3)",
-                "font-size": "24px",
-                "font-weight": "700",
-              }}
-            >
-              내용이 없습니다.
-            </span>
-          )}
-        </div>
-       
+            <div className={styles.CardCon}>
+              {data.length > 0 ? (
+                <GuestCardList data={data}></GuestCardList>
+              ) : (
+                <span
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    textAlign: "center",
+                    color: "var(--G3)",
+                    "font-size": "24px",
+                    "font-weight": "700",
+                  }}
+                >
+                  내용이 없습니다.
+                </span>
+              )}
+            </div>
           </>
-          
-        }
-    
+        )}
       </div>
-      <FloatButton icon={"add"} onClick={handleOpen}/>
+      <FloatButton icon={rotate ? "close" : "add"} onClick={handleOpen} />
     </div>
   );
 }

@@ -54,12 +54,18 @@ function Credit(props) {
               <span>획</span>
               <span>팀</span>
             </span>
-            <span>박건도</span>
-            <span>김현지</span>
-            <span>변재윤</span>
-            <span>이규빈</span>
-            <span>이문경</span>
-            <span>전다희</span>
+            <div className={styles.twoLine}>
+              <div>
+                <span>박건도</span>
+                <span>김현지</span>
+                <span>변재윤</span>
+              </div>
+              <div>
+                <span>이규빈</span>
+                <span>이문경</span>
+                <span>전다희</span>
+              </div>
+            </div>
           </div>
           <div className={styles.Graduation}>
             <span className={styles.Flex}>
@@ -79,12 +85,18 @@ function Credit(props) {
               <span>인</span>
               <span>팀</span>
             </span>
-            <span>서예진</span>
-            <span>이수진</span>
-            <span>정은지</span>
-            <span>조희수</span>
-            <span>최경주</span>
-            <span>최여원</span>
+            <div className={styles.twoLine}>
+              <div>
+                <span>서예진</span>
+                <span>이수진</span>
+                <span>정은지</span>
+              </div>
+              <div>
+                <span>조희수</span>
+                <span>최경주</span>
+                <span>최여원</span>
+              </div>
+            </div>
           </div>
         </div>
         <div className={styles.credit_area_section}>
@@ -95,12 +107,18 @@ function Credit(props) {
               <span>개</span>
               <span>발</span>
             </span>
-            <span>박건도</span>
-            <span>송해성</span>
-            <span>이태균</span>
-            <span>조희수</span>
-            <span>정은지</span>
-            <span>김한종 교수님</span>
+            <div className={styles.twoLine}>
+            <div>
+              <span>박건도</span>
+              <span>송해성</span>
+              <span>이태균</span>
+            </div>
+            <div>
+              <span>조희수</span>
+              <span>정은지</span>
+              <span>김한종 교수님</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>

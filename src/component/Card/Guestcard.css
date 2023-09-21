@@ -4,17 +4,8 @@
   -moz-user-drag: none;
   -ms-use-drag: none;
   display: flex;
-  align-items: stretch;
+  align-items: center;
   justify-content: center;
-}
-@media screen and (max-width:660px){
-  .CardContainer{
-    display: flex;
-    max-width: 100%;
-    height: auto;
-    position: relative;
-    align-items: stretch;
-  }
 }
 .read {
   width: 285px;
@@ -59,7 +50,7 @@
 
 .detail {
   width: 220px;
-  height: 100px;
+  height: 120px;
   white-space: normal;
   overflow-wrap: anywhere;
   color: var(--color);
@@ -68,7 +59,7 @@
 }
 .guestcard > span {
   display: block;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .TextInput {
@@ -96,10 +87,13 @@
 
 .guestcard {
   position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: calc(75px) calc(32px) calc(32px);
   z-index: 1;
   width: 220px;
-  height: 160px;
-  margin: 80px auto 45px;
+  gap: 20px;
 }
 
 .to,
@@ -107,7 +101,7 @@
   display: flex;
   align-items: center;
   font-weight: 500;
-  margin-bottom: 20px;
+  font-size: 14px;
 }
 
 .to > span,
@@ -132,7 +126,6 @@
 }
 
 .bigfont {
-  margin-bottom: 40px;
   font-size: 20px;
   line-height: 100%;
   align-items: baseline;
@@ -143,17 +136,14 @@ textarea::-webkit-input-placeholder {
   font-weight: 400;
 }
 
+.bluecolor::-webkit-input-placeholder {
+  color: #3775bb90 !important;
+  font-weight: 400;
+}
 .GusetCardContainer {
   width: 600px;
 }
 
-@media screen and (max-width: 660px) {
-  .card{
-    max-width: 90%;
-    height: auto;
-    position: relative;
-  }
-}
 @media (max-width: 1500px) {
   .bigfont {
     margin-bottom: 30px;
@@ -199,10 +189,13 @@ textarea::-webkit-input-placeholder {
 
   .guestcard {
     position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: calc(75px) calc(32px) calc(32px);
     z-index: 1;
-    width: calc(220px);
-    height: calc(160px);
-    margin: calc(80px) auto calc(45px);
+    width: 220px;
+    gap: 20px;
   }
 
   .detail {
@@ -228,10 +221,13 @@ textarea::-webkit-input-placeholder {
 @media (max-width: 1200px) {
   .guestcard {
     position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: calc(75px * 3 / 4) calc(32px * 3 / 4) calc(32px * 3 / 4);
     z-index: 1;
     width: calc(220px * 3 / 4);
-    height: calc(160px * 3 / 4);
-    margin: calc(80px * 3 / 4) auto calc(45px * 3 / 4);
+    gap: calc(20px * 3 / 4);
   }
 
   .detail {
@@ -246,10 +242,117 @@ textarea::-webkit-input-placeholder {
   .guestcard > span {
     display: block;
     font-size: 10px;
+    font-weight: 300;
+  }
+  .to,
+  .from {
+    font-size: 10px;
   }
 
+  .to > span,
+  .from > span {
+    font-weight: 200;
+  }
+
+  .write .to > span,
+  .write .from > span {
+    font-size: 16px;
+  }
   .read {
     width: calc(285px * 3 / 4);
     height: calc(285px * 3 / 4);
+  }
+}
+
+@media (max-width: 800px) {
+  .to > textarea,
+  .from > textarea {
+    font-family: "Pretendard-Regular";
+    vertical-align: baseline;
+    width: 100%;
+    height: 23px;
+    background-color: transparent;
+    font-size: 14px;
+    line-height: 100%;
+    color: var(--color);
+  }
+
+  .bigfont {
+    margin: 0;
+  }
+
+  .guestcard {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: calc(75px * 3 / 4) calc(32px * 3 / 4) calc(32px * 3 / 4);
+    z-index: 1;
+    width: calc(220px * 3 / 4);
+    gap: calc(20px * 3 / 4);
+  }
+
+  .detail {
+    width: calc(220px * 3 / 4);
+    height: calc(100px * 3 / 4);
+    white-space: normal;
+    overflow-wrap: anywhere;
+    color: var(--color);
+    font-family: "Pretendard-Regular";
+    background-color: transparent;
+  }
+
+  .card {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: calc(75px) calc(32px) calc(32px);
+    z-index: 1;
+    width: calc(343px - 64px);
+    height: calc(343px - 107px);
+    gap: 20px;
+  }
+
+  .TextInput {
+    width: 220px;
+    height: 120px;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    color: var(--color);
+    font-family: "Pretendard-Regular";
+    background-color: transparent;
+  }
+
+  .guestcard > span {
+    display: block;
+    font-size: 10px;
+    font-weight: 300;
+  }
+  .to,
+  .from {
+    font-size: 10px;
+    margin: 0 !important;
+  }
+
+  .to > span,
+  .from > span {
+    font-weight: 200;
+  }
+  .bigfont {
+    font-size: 16px;
+  }
+
+  .write .to > span,
+  .write .from > span {
+    font-size: 16px;
+  }
+  .read {
+    width: calc(285px * 3 / 4);
+    height: calc(285px * 3 / 4);
+  }
+  .write {
+    width: 343px;
+    height: 343px;
   }
 }

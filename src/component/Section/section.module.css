@@ -12,8 +12,7 @@
 }
 
 .leftVideo img {
-  max-width: 100%;
-   height: auto !important;
+  width: 1200px;
   position: absolute;
   transform: translate(-10%);
 }
@@ -22,10 +21,13 @@
   flex: 1;
   box-sizing: border-box;
   font-family: "Pretendard";
+  width: 100%;
 }
 
 .textBox {
   width: 580px;
+  padding: 0px 16px;
+  box-sizing: border-box;
 }
 
 .textBox * {
@@ -37,7 +39,7 @@
   color: var(--P1);
   line-height: 40px;
   font-weight: 600;
-  margin-bottom: 40px !important;
+  margin-bottom: 40px;
 }
 
 .rightConcept h3 {
@@ -69,6 +71,11 @@
   text-align: center;
   margin-top: 100px;
   margin-bottom: 40px;
+  line-height: 180%;
+}
+
+.narrow_screen_text {
+  display: none;
 }
 
 .sectionTitle:nth-child(4) {
@@ -207,6 +214,7 @@
   justify-items: stretch;
   color: #333333;
   transform: translate(-90px);
+  
 }
 .var .grid > div > h4 {
   margin: 0px;
@@ -249,10 +257,12 @@
   /* grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr; */
   grid-template-areas:
-    "c b e h"
-    "a b d h";
+    "a b d f"
+    "c b e f";
 }
 
+.moc .grid div {
+}
 
 .moc .grid div {
   width: 100%;
@@ -261,7 +271,7 @@
 }
 
 .moc .grid div:nth-child(1) {
-  grid-area: c;
+  grid-area: a;
   background-image: url("../Img/mock1.png");
 }
 .moc .grid div:nth-child(2) {
@@ -271,19 +281,19 @@
   background-position: 50% -200%;
 }
 .moc .grid div:nth-child(3) {
-  grid-area: a;
+  grid-area: c;
   background-image: url("../Img/mock2.png");
 }
 .moc .grid div:nth-child(4) {
-  grid-area: e;
+  grid-area: d;
   background-image: url("../Img/mock4.png");
 }
 .moc .grid div:nth-child(5) {
-  grid-area: d;
+  grid-area: e;
   background-image: url("../Img/mock3.png");
 }
 .moc .grid div:nth-child(6) {
-  grid-area: h;
+  grid-area: f;
   background-image: url("../Img/mock6.png");
   background-position: 70% 50%;
 }
@@ -296,6 +306,7 @@
   max-width: 1200px;
   margin: auto;
   margin-bottom: 100px;
+  padding: 0px 40px;
 }
 
 .credit_area_section h4 {
@@ -349,7 +360,7 @@
   width: 100%;
   height: 82px;
   display: flex;
-  padding: 20px;
+  padding: 0px 40px;
   box-sizing: border-box;
 }
 
@@ -361,3 +372,126 @@
   min-width: 1200px;
   margin: auto;
 }
+
+
+@media (max-width: 1500px) {
+}
+@media (max-width: 1200px) {
+  .Concept{
+    display: flex;
+    background-size: cover;
+  }
+  .textBox{
+    margin: auto;
+    width: 600px;
+    text-align: center;
+  }
+  .leftVideo{
+    display: none;
+  }
+  .typo .images {
+    gap: 60px;
+  }
+  .sys .fontarea {
+    transform: translate(20px);
+  }
+  .sys .KoPub,
+  .Preten {
+    flex-direction: column;
+  }
+  .var .grid {
+    width: 800px;
+    transform: translate(-60px);
+  }
+  .moc .grid {
+    height: 160vh;
+    grid-template-areas:
+    "a b"
+    "c b"
+    "f d"
+    "f e";
+  }
+}
+@media (max-width: 800px) {
+  .textBox{
+    margin: auto;
+    width: 590px;
+    text-align: center;
+  }
+  .sys > .images > p {
+    margin-bottom: 100px;
+  }
+  .sys .fontarea {
+    color: #666666;
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    font-weight: 400;
+    transform: translate(0px);
+    align-items: end;
+    width: 500px;
+    margin: auto;
+  }
+  .sys .KoPub,
+  .Preten {
+    display: flex;
+    gap: 40px;
+    font-size: 12px;
+    width: 100%;
+    justify-content: space-between;
+  }
+  .typo .images {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 160px;
+  }
+  .var .grid {
+    width: 660px;
+    gap: 0px 0px;
+    transform: translate(-30px);
+  }
+
+  @media (max-width: 600px) {
+    .textBox{
+      width: 100%;
+      text-align: center;
+    }
+    .wide_screen_text {
+      display: none;
+    }
+    .narrow_screen_text {
+      display: block;
+    }
+    .guide img{
+      width: 80vw;
+    }
+    .eledef img:nth-child(1){
+      height: 16vw;
+    }
+    .eledef img:nth-child(2){
+      height: 16vw;
+    }
+    .leftTitle{
+      display: none;
+      opacity: 0;
+    }
+    .var .grid {
+      width: 450px;
+      transform: translate(-36px);
+    }
+    .credit_area_section span{
+      font-size: 14px;
+    }
+    .twoLine{
+      display: flex;
+      flex-direction: column;
+    }
+    .Graduation{
+      align-items: start;
+    }
+    .Thanks{
+      align-items: start;
+    }
+  }
+}
+

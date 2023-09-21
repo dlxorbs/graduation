@@ -28,6 +28,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: #ffffff;
 }
+textarea {
+  text-align: justify;
+}
 
 :root {
   /*accent*/
@@ -86,3 +89,4 @@ body {
   --grid-col-m: 3;
   --grid-col-s: 2;
 }
+ 

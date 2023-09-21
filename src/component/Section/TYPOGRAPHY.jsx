@@ -9,8 +9,8 @@ function Typography(props) {
     <div className={`${styles.Section} ${styles.typo}`}>
       <Section text={"TYPOGRAPHY"}></Section>
       <h5 className={styles.sectionTitle}>
-        18회 졸업전시의 메인 단어인 ‘유연'의 물결을 형상화 한 타이포를
-        제작하였습니다.
+      <span className={styles.wide_screen_text}>18회 졸업전시의 메인 단어인 ‘유연'의 물결을 형상화 한 타이포를 제작하였습니다.</span>
+      <span className={styles.narrow_screen_text}>18회 졸업전시의 메인 단어인 ‘유연'의<br/>물결을 형상화 한 타이포를 제작하였습니다.</span>
       </h5>
       <div className={styles.images}>
         <img src={Logo} alt="" />

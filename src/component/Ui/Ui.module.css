@@ -79,7 +79,7 @@
   background-color: rgb(255, 255, 255);
   position: fixed;
   bottom: 0;
-  /* z-index: 9999; */
+  z-index: 9999;
   width: 100vw;
   border-top: 1px solid var(--maincolor);
   transition: transform 0.2s ease-in-out;
@@ -96,8 +96,10 @@
   margin: auto;
   font-family: "Pretendard";
   font-weight: Bold;
-  box-sizing: border-box;
+  padding: 0px 20px;
 }
+
+
 
 /* Footer */
 .Footer {
@@ -116,6 +118,7 @@
   line-height: 180%;
   font-family: "Pretendard";
   font-weight: 400;
+  padding: 0px 20px;
 }
 
 .MainBottom2 div:nth-child(3) {
@@ -147,4 +150,24 @@
   background: none;
   border: none;
   cursor: pointer;
+}
+
+
+@media (max-width: 1500px) {
+}
+@media (max-width: 1200px) {
+  .MainBottom .left{
+    font-size: 16px;
+  }
+  .MainBottom .right{
+    font-size: 28px;
+  }
+}
+@media (max-width: 800px) {
+  .MainBottom .right{
+    display: none;
+  }
+  .MainBottom2>div:nth-child(1){
+    display: none;
+  }
 }

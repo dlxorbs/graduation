@@ -59,7 +59,7 @@
 }
 
 #toggle:checked ~ .toggleSwitch .toggleButton {
-  left: calc(100% - 23px);
+  left: calc(100% - 46px);
   background: var(--G1);
 }
 

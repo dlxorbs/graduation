@@ -8,14 +8,17 @@ function Designsystem(props) {
     <div className={`${styles.Section} ${styles.sys}`}>
       <Section text={"DESIGN SYSTEM"}></Section>
       <h5 className={styles.sectionTitle}>
-        물방울을 형상화 하는 색상을 선정하여 유연한 흐름을 보여줍니다.
+      <span className={styles.wide_screen_text}>물방울을 형상화 하는 색상을 선정하여 유연한 흐름을 보여줍니다.</span>
+      <span className={styles.narrow_screen_text}>물방울을 형상화 하는 색상을<br/>선정하여 유연한 흐름을 보여줍니다.</span>
+        
       </h5>
       <div className={styles.images}>
         <p>BRAND COLOR</p>
         <img src={color} alt="" />
       </div>
       <h5 className={styles.sectionTitle}>
-        포스터 전시 정보, 도록 본문 등 인쇄물 정보 전달에 사용합니다.
+      <span className={styles.wide_screen_text}>포스터 전시 정보, 도록 본문 등 인쇄물 정보 전달에 사용합니다.</span>
+      <span className={styles.narrow_screen_text}>포스터 전시 정보, 도록 본문 등<br/>인쇄물 정보 전달에 사용합니다.</span>
       </h5>
       <div className={styles.images}>
         <p>TEXT STYLE</p>

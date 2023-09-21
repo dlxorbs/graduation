@@ -74,7 +74,7 @@ export default function ProfileDetailPage() {
       // .where('')
       // .where("data.teamMembers.studentId", "array-contains", postId)
       // .where("studentId", "==", postId)
-      .where("data.type", "==", "t")
+      // .where("data.type", "==", "t")
       // .where("data.teamMembers", "array-contains", postId)
       .get()
       .then((qs) => {

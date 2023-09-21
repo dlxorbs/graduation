@@ -15,7 +15,8 @@ function Variation(props) {
     <div className={`${styles.Section} ${styles.var}`}>
       <Section text={"VARIATION"}></Section>
       <h5 className={styles.sectionTitle}>
-        유연이 가지고 있는 의미를 바탕으로 3가지 키워드를 도출합니다.
+      <span className={styles.wide_screen_text}>유연이 가지고 있는 의미를 바탕으로 3가지 키워드를 도출합니다.</span>
+      <span className={styles.narrow_screen_text}>유연이 가지고 있는 의미를<br/>바탕으로 3가지 키워드를 도출합니다.</span>
       </h5>
       <div className={styles.grid}>
         <div></div>

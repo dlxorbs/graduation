@@ -15,6 +15,7 @@
 }
 
 .overflow {
+  position: relative;
   overflow-x: hidden;
 }
 

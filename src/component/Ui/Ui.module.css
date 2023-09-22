@@ -99,8 +99,6 @@
   padding: 0px 20px;
 }
 
-
-
 /* Footer */
 .Footer {
   height: 230px;
@@ -152,22 +150,26 @@
   cursor: pointer;
 }
 
-
 @media (max-width: 1500px) {
 }
 @media (max-width: 1200px) {
-  .MainBottom .left{
+  .MainBottom .left {
     font-size: 16px;
   }
-  .MainBottom .right{
+  .MainBottom .right {
     font-size: 28px;
   }
 }
 @media (max-width: 800px) {
-  .MainBottom .right{
+  .MainBottom .right {
     display: none;
   }
-  .MainBottom2>div:nth-child(1){
+  .MainBottom2 > div:nth-child(1) {
     display: none;
+  }
+
+  .moveImage {
+    width: 500px;
+    transform: translate(3%, -2%);
   }
 }

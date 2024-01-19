@@ -86,9 +86,14 @@ export default function ProfileDetailPage() {
           };
           let stdid = [];
           let team = [];
-          teamDatas.teamMembers.map((item) => {
-            stdid.push(item.studentId);
-          });
+
+          console.log(teamDatas.teamMembers);
+          if (Array.isArray(teamDatas.teamMembers)) {
+            teamDatas.teamMembers.map((item) => {
+              stdid.push(item.studentId);
+              console.log(item);
+            });
+          }
           if (stdid.includes(postId)) {
             console.log("true:", teamDatas);
 
